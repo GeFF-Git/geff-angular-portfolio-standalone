@@ -1,0 +1,21 @@
+<div class="h-screen">
+ <app-header></app-header>
+ <div class="content">
+  @defer (hydrate on viewport) {
+    <section>
+      <app-home-page></app-home-page>
+    </section>
+  }
+  @defer (hydrate on viewport) {
+    <section>
+      <app-about></app-about>
+    </section>
+  }
+  @defer (hydrate on viewport) {
+    <section>
+      <app-education></app-education>
+    </section>
+  }
+ </div>
+<!-- <app-footer></app-footer> -->
+</div>
