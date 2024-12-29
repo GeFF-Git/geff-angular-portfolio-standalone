@@ -13,7 +13,7 @@ gsap.registerPlugin(ScrollTrigger);
 
 @Component({
   selector: 'app-layout',
-  imports: [HeaderComponent, HomePageComponent, AboutComponent, EducationComponent],
+  imports: [HomePageComponent, AboutComponent, EducationComponent],
   templateUrl: './layout.component.html',
   styleUrl: './layout.component.scss',
 })
@@ -32,13 +32,14 @@ export class LayoutComponent implements AfterViewInit {
             pin: true,
             scrub: true,
             anticipatePin: 1,
-            markers: true
+            markers: true,
           }
         });
         tl
         .fromTo(section.querySelector(".about-section"), { xPercent: 0, x: 0}, {xPercent: 0}, "+=3")
           // ...and the image the opposite way (at the same time)
         .fromTo(section.querySelector(".skills-section"), {xPercent: 0, x: 0}, {xPercent: -100}, "+=10")
+        // .add(() => gsap.set(section))
         // .fromTo(section.querySelector(".projects-section"), {xPercent: -100, x: 0}, {xPercent: -200}, "+=10");
       });
     }
