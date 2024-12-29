@@ -1,21 +1,24 @@
 <div class="h-screen">
  <app-header></app-header>
  <div class="content">
-  @defer (hydrate on viewport) {
+  <!-- @defer (hydrate on viewport) {  -->
     <section>
       <app-home-page></app-home-page>
     </section>
-  }
-  @defer (hydrate on viewport) {
-    <section>
+  <!-- } -->
+  <div id="section-container">
+    <!-- @defer (hydrate on viewport) { -->
+    <section class="about-section">
       <app-about></app-about>
     </section>
-  }
-  @defer (hydrate on viewport) {
-    <section>
-      <app-education></app-education>
+  <!-- } -->
+  <!-- @defer (hydrate on viewport) { -->
+    <section class="skills-section">
+      <app-about></app-about>
+      <!-- <app-education></app-education> -->
     </section>
-  }
+  <!-- } -->
+</div>
  </div>
 <!-- <app-footer></app-footer> -->
 </div>

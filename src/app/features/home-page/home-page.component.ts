@@ -1,13 +1,15 @@
 import { trigger, transition, style, animate } from '@angular/animations';
-import { isPlatformBrowser } from '@angular/common';
+import { CommonModule, isPlatformBrowser } from '@angular/common';
 import { AfterViewInit, Component, ElementRef, Inject, NgZone, OnDestroy, OnInit, PLATFORM_ID, ViewChild } from '@angular/core';
+import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/all';
 import _gsap from 'gsap/gsap-core';
 gsap.registerPlugin(ScrollTrigger);
 @Component({
   selector: 'app-home-page',
-  imports: [],
+  imports: [CommonModule],
   templateUrl: './home-page.component.html',
   styleUrl: './home-page.component.scss',
   animations: [trigger('fadeIn', [
@@ -38,14 +40,51 @@ export class HomePageComponent implements AfterViewInit,OnInit,OnDestroy {
 
   ngOnInit(): void {
     if (isPlatformBrowser(this.platformId)) {
-      console.log('isPlatformBrowser');
       this.loadSKills();
     }
-    this.ngZone.run(() => {
-      this.loadSKills();
-    })
   }
   ngAfterViewInit(): void {
+    // if (isPlatformBrowser(this.platformId)) {
+    //   gsap.defaults({ease: 'none', duration: 100});
+    //   gsap.registerPlugin(ScrollTrigger);
+    //   gsap.utils.toArray('#section-container').forEach((section : any) => {
+    //     let tl = gsap.timeline({
+    //       scrollTrigger: {
+    //         trigger: section,
+    //         start: 'end end',
+    //         end: () => "+=" + (section.offsetWidth),
+    //         pin: true,
+    //         scrub: true,
+    //         anticipatePin: 1,
+    //         markers: true
+    //       }
+    //     });
+    //     tl
+    //     .fromTo(section.querySelector(".about-section"), { xPercent: 0, x: 0}, {xPercent: 0}, "+=3")
+    //       // ...and the image the opposite way (at the same time)
+    //     .fromTo(section.querySelector(".skills-section"), {xPercent: 0, x: 0}, {xPercent: -100}, "+=10")
+    //     .fromTo(section.querySelector(".projects-section"), {xPercent: -100, x: 0}, {xPercent: -200}, "+=10");
+    //   });
+    // }
+  }
+
+  loadSKills(){
+    setInterval(() => {
+      this.isShowText = false;
+      this.timeout = setTimeout(() => {
+        this.currentSkill = this.strings[this.currentIndex];
+        this.isShowText = true; // Re-add the text to DOM, triggering animation
+        this.currentIndex = (this.currentIndex + 1) % this.strings.length;
+      }, 200); // Short delay to ensure the DOM re-renders
+    }, 2000);
+  }
+
+  ngOnDestroy(): void {
+    clearInterval(this.interval);
+    clearTimeout(this.timeout);
+  }
+}
+
     // const scrollContainer = this.scrollContainer.nativeElement;
     // const scrollContent = this.scrollContent.nativeElement;
 
@@ -103,45 +142,3 @@ export class HomePageComponent implements AfterViewInit,OnInit,OnDestroy {
     //     }),
     //   });
     // }
-    if (isPlatformBrowser(this.platformId)) {
-      gsap.defaults({ease: 'none', duration: 100});
-      gsap.registerPlugin(ScrollTrigger);
-      gsap.utils.toArray('#section-container').forEach((section : any) => {
-        let tl = gsap.timeline({
-          scrollTrigger: {
-            trigger: section,
-            start: 'end end',
-            end: () => "+=" + (section.offsetWidth),
-            pin: true,
-            scrub: true,
-            anticipatePin: 1,
-            markers: true
-          }
-        });
-        tl
-        .fromTo(section.querySelector(".about-section"), { xPercent: 0, x: 0}, {xPercent: 0}, "+=3")
-          // ...and the image the opposite way (at the same time)
-        .fromTo(section.querySelector(".skills-section"), {xPercent: 0, x: 0}, {xPercent: -100}, "+=10")
-        .fromTo(section.querySelector(".projects-section"), {xPercent: -100, x: 0}, {xPercent: -200}, "+=10");
-      });
-    }
-    // this.loadSKills();
-  }
-
-  loadSKills(){
-    setInterval(() => {
-      this.isShowText = false;
-      this.timeout = setTimeout(() => {
-        this.currentSkill = this.strings[this.currentIndex];
-        this.isShowText = true; // Re-add the text to DOM, triggering animation
-        this.currentIndex = (this.currentIndex + 1) % this.strings.length;
-      }, 200); // Short delay to ensure the DOM re-renders
-    }, 2000);
-  }
-
-  ngOnDestroy(): void {
-    clearInterval(this.interval);
-    clearTimeout(this.timeout);
-  }
-}
-
