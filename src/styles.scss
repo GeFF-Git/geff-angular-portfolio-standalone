@@ -8,6 +8,20 @@ html, body { height: 100%; scroll-behavior: 'smooth'; }
 body {
     margin: 0;
     font-family: Roboto, "Helvetica Neue", sans-serif;
-    // overflow: hidden;
+    overflow-x: hidden;
     background-color: aliceblue;
+    // app-header{
+    //   width: 100vw;
+    //   height: 10vh;
+    //   display: block;
+    // }
+}
+app-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000; /* Ensures it stays above other elements */
+  background-color: white; /* Optional: Add a background to prevent transparency */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Optional: Add a subtle shadow for better visibility */
 }

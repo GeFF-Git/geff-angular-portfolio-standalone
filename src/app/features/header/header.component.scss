@@ -1,0 +1,22 @@
+:host{
+  display: flex;
+}
+
+.default-header{
+  display: flex !important;
+  flex: 1 1 auto !important;
+  justify-content: space-between;
+  z-index: inherit;
+  border-radius: 0.2rem;
+  border-width: 0.1rem;
+
+  .title{
+      width: 25vw;
+  }
+
+  .content{
+      display: flex;
+      flex-direction: row;
+      gap: 1rem
+  }
+}
