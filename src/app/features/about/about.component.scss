@@ -26,6 +26,9 @@
   justify-content: space-evenly;
   img{
     width: 45vw;
+    @media screen and (max-width: 576px) {
+      width: 30vw;
+    }
   }
 }
 .about_content{
