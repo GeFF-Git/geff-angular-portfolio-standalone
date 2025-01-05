@@ -30,7 +30,7 @@ export class HomePageComponent implements AfterViewInit,OnInit,OnDestroy {
   strings : string[] = ['a ui-developer', 'an api-developer', 'a photographer'];
   skills : string[] = [];
   currentIndex = 0;
-  currentSkill : string = 'Geoffrey';
+  currentSkill : string = 'Loading...';
   interval !: NodeJS.Timeout;
   timeout !: NodeJS.Timeout;
   isShowText = true;

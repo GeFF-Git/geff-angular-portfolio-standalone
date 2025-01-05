@@ -1,12 +1,5 @@
 // :host{
-//   overflow: hidden;
-// }
-
-// :root{
-// overflow: hidden;
-// }
-// :host{
-//   overflow: scroll;
+//   width: 100vw;
 // }
 
 .small-text {
@@ -17,69 +10,30 @@
   letter-spacing: 0.2px;
 }
 
-.panel {
-  width: 100%; /* Each section takes full viewport width */
-  height: 100%; /* Full container height */
-}
-
-#section-container {
-  // overflow-x: auto;
-  display: flex;
-  flex-wrap: nowrap;
-  justify-content: space-evenly;
-  padding: 2rem;
-  // flex-direction: column;
-  // transform: translateX(0); /* Start at initial position */
-}
-
-//   #skills, #projects{
-//     width: 100%;
-//     height: 100%;
-//   }
-
-.scroll-container {
+.about_container{
   width: 100vw;
   height: 100vh;
-  .home-page {
-      margin-top: 1rem;
-      display: flex;
-      flex-wrap: wrap;
-      padding: 2rem;
-      width: 100%;
+}
 
-      .content-1 {
-          font-size: 2rem;
-          display: flex;
-          flex-direction: column;
-          flex: 1 1 10rem;
-          width: 45vw;
-          overflow: hidden;
+.main_title{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
 
-          .c1-2 {
-              position: relative;
-
-              div {
-                  position: absolute;
-                  top: 0rem;
-                  left: 3rem;
-                  color: teal;
-              }
-          }
-
-          // &:hover{
-          //     color: aqua;
-          // }
-      }
-
-      .content-2 {
-          width: 45vw;
-
-          img {
-              width: 100%;
-              height: 100%;
-          }
-      }
+.main_content{
+  display: flex;
+  justify-content: space-evenly;
+  img{
+    width: 45vw;
   }
+}
+.about_content{
+  width: 50vw;
+  display: flex;
+  flex-direction: column;
+  // align-items: center;
+  // justify-content: space-between;
 }
 
 

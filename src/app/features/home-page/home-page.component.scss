@@ -1,7 +1,6 @@
-// :host{
-//   display: block;
-//   overflow: hidden;
-// }
+:host{
+  z-index: 9999;
+}
 
 // :root{
 // overflow: hidden;
@@ -39,9 +38,7 @@
     height: 65vh;
     flex-direction: column;
     justify-content: flex-start;
-    @media (max-width: 576px) {
-      // justify-content: center;
-    }
+    margin: 1.5rem;
     // width: 50vw;
     // height: 50vh;
   }
@@ -56,16 +53,19 @@
       // justify-content: center;
       margin-left: 2rem;
       width: 100%;
+      font-size: 1.4rem;
     }
     .c1-2 {
         position: relative;
         div {
             position: absolute;
             top: 0rem;
-            left: 3rem;
-            color: teal;
+            // left: 3rem;
+            // color: teal;
+            color: hsl(180, 100%, 25%);
             @media (max-width: 576px) {
               width: 100%;
+              // left: 2.1rem;
             }
         }
     }
