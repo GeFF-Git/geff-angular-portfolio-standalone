@@ -63,9 +63,9 @@ export class LayoutComponent implements AfterViewInit,AfterViewChecked {
               }
             });
             tl
-            .fromTo(section.querySelector(".about-section"), { xPercent: 0, x: 0, opacity: 1, zIndex: 1, ease: 'circ.in'}, {xPercent: 0, opacity: 0, zIndex: 0, ease: 'bounce.inOut'}, "+=3")
+            .fromTo(section.querySelector(".about-section"), { xPercent: 0, x: 0, opacity: 1, zIndex: 1, ease: 'circ.in', duration: 0.5}, {xPercent: 0, opacity: 0, zIndex: 0, ease: 'bounce.inOut'}, "+=3")
               // ...and the image the opposite way (at the same time)
-            .fromTo(section.querySelector(".skills-section"), {xPercent: 0, x: 0, opacity: 0, zIndex: 0}, {xPercent: -100, opacity: 1, zIndex: 1, ease: 'circ.inOut' }, "+=10")
+            .fromTo(section.querySelector(".skills-section"), {xPercent: 0, x: 0, opacity: 0, zIndex: 0, duration: 0.5, ease: 'bounce.in'}, {xPercent: -100, opacity: 1, zIndex: 1, ease: 'circ.inOut' }, "+=10")
             // .add(() => gsap.set(section))
             // .fromTo(section.querySelector(".projects-section"), {xPercent: -100, x: 0}, {xPercent: -200}, "+=10");
           });
