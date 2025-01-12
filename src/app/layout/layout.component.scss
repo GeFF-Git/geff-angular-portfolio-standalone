@@ -11,8 +11,34 @@
   margin: 0;
   padding: 0;
   display: flex;
+  // overflow: hidden;
   @media screen and (max-width: 576px) {
     display: inline;
   }
-  position: relative;
+  // position: relative;
 }
+
+// #section-container section{
+//   // background-color: rgba(0, 0, 0, 0.1); /* Adjust for visibility */
+//   // border: 1px solid red; /* Debugging border */
+//   // position: absolute;
+//   // width: 100%;
+//   // height: 100vh; /* Full viewport height */
+//   will-change: transform; /* Optimize for smoother animations */
+//   z-index: 0; /* Base stacking order */
+//   opacity: 0; /* Hide by default */
+//   transition: opacity 0.5s ease-in-out; /* Smooth fade-in */ 
+//   pointer-events: none;
+// }
+
+#section-container section.active{
+  z-index: 1; /* Bring to front */
+  opacity: 1; /* Make visible */
+  transition: opacity 0.5s ease-in-out; /* Smooth fade-in */ 
+  pointer-events: all;
+}
+
+
+// .skills-section{
+//   z-index: 9999;
+// }
