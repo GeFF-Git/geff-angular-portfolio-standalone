@@ -39,7 +39,7 @@ app-header {
   top: 0;
   left: 0;
   width: 100%;
-  z-index: 9999; /* Ensures it stays above other elements */
+  z-index: 999; /* Ensures it stays above other elements */
   background-color: aliceblue; /* Optional: Add a background to prevent transparency */
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Optional: Add a subtle shadow for better visibility */
 }

@@ -19,7 +19,7 @@ gsap.registerPlugin(ScrollTrigger);
     ]),
     transition(':leave', [
         // style({opacity : 0, transform : 'translateY(-2rem)'}),
-        animate('600ms ease-out', style({ opacity: 0, transform: 'translateY(-0.1rem)' })),
+        animate('600ms ease-out', style({ opacity: 0, transform: 'translateY(-0.5rem)' })),
     ]),
 ])
 ],
@@ -34,9 +34,9 @@ export class HomePageComponent implements AfterViewInit,OnInit,OnDestroy {
   interval !: NodeJS.Timeout;
   timeout !: NodeJS.Timeout;
   isShowText = true;
-  @ViewChild('scrollContainer', {static: true}) scrollContainer !: ElementRef;
+  @ViewChild('scrollContainer', { static: true }) scrollContainer !: ElementRef;
   @ViewChild('scrollContent', { static: true }) scrollContent!: ElementRef;
-  @ViewChild('sectionContainer', {static: true}) sectionContainer !: ElementRef;
+  @ViewChild('sectionContainer', { static: true }) sectionContainer !: ElementRef;
 
   ngOnInit(): void {
     if (isPlatformBrowser(this.platformId)) {

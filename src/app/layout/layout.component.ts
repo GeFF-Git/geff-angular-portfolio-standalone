@@ -18,7 +18,7 @@ export class LayoutComponent implements AfterViewInit,AfterViewChecked {
   sections = viewChild<ElementRef>('sectionsContainer');
   constructor(@Inject(PLATFORM_ID) private platformId : object, private breakPointObserver : BreakpointObserver, private renderer : Renderer2){}
   ngAfterViewChecked(): void {
-    console.log(this.sections);
+    // console.log(this.sections);
   }
   ngAfterViewInit(): void {
     this.breakPointObserver.observe([
@@ -49,9 +49,11 @@ export class LayoutComponent implements AfterViewInit,AfterViewChecked {
                 start: 'start start',
                 end: () => "+=" + (section.offsetWidth),
                 pin: true,
-                scrub: true,
+                scrub: 1,
                 anticipatePin: 1,
                 markers: true,
+                pinSpacing: true,
+                fastScrollEnd: true,
                 // onEnter: () => this.setActive(section, index),
                 // onLeave: () => this.clearActive(section, index),
                 // onEnterBack: () => this.setActive(section, index),
@@ -63,13 +65,26 @@ export class LayoutComponent implements AfterViewInit,AfterViewChecked {
               }
             });
             tl
-            .fromTo(section.querySelector(".about-section"), { xPercent: 0, x: 0, opacity: 1, zIndex: 1, ease: 'circ.in', duration: 0.5}, {xPercent: 0, opacity: 0, zIndex: 0, ease: 'bounce.inOut'}, "+=3")
+            .fromTo(section.querySelector(".about-section"), { xPercent: 0, x: 0, opacity: 1, zIndex: 1}, {xPercent: 0, opacity: 0, zIndex: 0, ease: 'bounce.inOut'})
               // ...and the image the opposite way (at the same time)
             .fromTo(section.querySelector(".skills-section"), {xPercent: 0, x: 0, opacity: 0, zIndex: 0, duration: 0.5, ease: 'bounce.in'}, {xPercent: -100, opacity: 1, zIndex: 1, ease: 'circ.inOut' }, "+=10")
             // .add(() => gsap.set(section))
             // .fromTo(section.querySelector(".projects-section"), {xPercent: -100, x: 0}, {xPercent: -200}, "+=10");
           });
         }
+      }
+    });
+    let container = document.querySelector('.container');
+    let sections = document.querySelectorAll('.panel');
+    gsap.to(sections, {
+      xPercent: -100 * (sections.length - 1),
+      ease: "none",
+      scrollTrigger: {
+        trigger: '.panel-content',
+        start: 'start start',
+        pin: true,
+        scrub: true,
+        end: '+=3500'
       }
     })
   }

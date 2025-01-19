@@ -15,9 +15,32 @@
   @media screen and (max-width: 576px) {
     display: inline;
   }
+  // transition: opacity 0.5s ease-in-out; /* Smooth fade-in */ 
   // position: relative;
 }
 
+
+.panel-content{
+  margin: 0;
+  padding: 0;
+  display: flex;
+  width: 100vw;
+  height: 100vh;
+  position: absolute;
+  .panel{
+    width: 100vw;
+    height: 100vh;
+  }
+  .one{
+    background: 0.5rem red;
+  }
+  .two{
+    background: 0.5rem blue;
+  }
+  .three{
+    background: 0.5rem green;
+  }
+}
 // #section-container section{
 //   // background-color: rgba(0, 0, 0, 0.1); /* Adjust for visibility */
 //   // border: 1px solid red; /* Debugging border */
@@ -34,7 +57,7 @@
 #section-container section.active{
   z-index: 1; /* Bring to front */
   opacity: 1; /* Make visible */
-  transition: opacity 0.5s ease-in-out; /* Smooth fade-in */ 
+  // transition: opacity 0.5s ease-in-out; /* Smooth fade-in */ 
   pointer-events: all;
 }
 
