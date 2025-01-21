@@ -40,7 +40,7 @@
   img{
     width: 45vw;
     @media screen and (max-width: 576px) {
-      width: 50vw;
+      width: 100vw;
     }
   }
 }
@@ -50,6 +50,11 @@
   flex-direction: column;
   // align-items: center;
   justify-content: space-between;
+  @media screen and (max-width: 576px) {
+    // flex-direction: row;
+    width: 90vw;
+    height: 40vh;
+  }
   .download_button{
     width: 10rem;
     height: 3rem;
