@@ -65,7 +65,7 @@ export class LayoutComponent implements AfterViewInit,AfterViewChecked {
               }
             });
             tl
-            .fromTo(section.querySelector(".about-section"), { xPercent: 0, x: 0, opacity: 1, zIndex: 1}, {xPercent: 0, opacity: 0, zIndex: 0, ease: 'bounce.inOut'})
+            .fromTo(section.querySelector(".about-section"), { xPercent: 0, x: 0, opacity: 1, zIndex: 1}, {xPercent: 0, opacity: 0, zIndex: 0, ease: 'bounce.out'})
               // ...and the image the opposite way (at the same time)
             .fromTo(section.querySelector(".skills-section"), {xPercent: 0, x: 0, opacity: 0, zIndex: 0, duration: 0.5, ease: 'bounce.in'}, {xPercent: -100, opacity: 1, zIndex: 1, ease: 'circ.inOut' }, "+=10")
             // .add(() => gsap.set(section))
@@ -74,19 +74,19 @@ export class LayoutComponent implements AfterViewInit,AfterViewChecked {
         }
       }
     });
-    let container = document.querySelector('.container');
-    let sections = document.querySelectorAll('.panel');
-    gsap.to(sections, {
-      xPercent: -100 * (sections.length - 1),
-      ease: "none",
-      scrollTrigger: {
-        trigger: '.panel-content',
-        start: 'start start',
-        pin: true,
-        scrub: true,
-        end: '+=3500'
-      }
-    })
+    // let container = document.querySelector('.container');
+    // let sections = document.querySelectorAll('.panel');
+    // gsap.to(sections, {
+    //   xPercent: -100 * (sections.length - 1),
+    //   ease: "none",
+    //   scrollTrigger: {
+    //     trigger: '.panel-content',
+    //     start: 'start start',
+    //     pin: true,
+    //     scrub: true,
+    //     end: '+=3500'
+    //   }
+    // })
   }
 
   setActive(section: HTMLElement, index : number) {
