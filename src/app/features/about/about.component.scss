@@ -84,6 +84,13 @@
         }
       }
     }
+    &:not(:hover){
+      &::after{
+        top: 100px;
+        left: 200px;
+        transition: all 0.4s ease-in;
+      }
+    }
     &::after{
       content: '';
       position: absolute;
