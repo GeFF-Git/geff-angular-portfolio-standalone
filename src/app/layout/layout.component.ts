@@ -47,7 +47,7 @@ export class LayoutComponent implements AfterViewInit,AfterViewChecked {
               scrollTrigger: {
                 trigger: section,
                 start: 'start start',
-                end: () => "+=30px",// + (section.offsetWidth),
+                end: () => "+100px",// + (section.offsetWidth),
                 pin: true,
                 scrub: 1,
                 anticipatePin: 1,
