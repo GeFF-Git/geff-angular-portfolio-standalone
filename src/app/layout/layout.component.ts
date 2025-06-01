@@ -7,10 +7,11 @@ import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/all';
 import _gsap from 'gsap/gsap-core';
 import { isPlatformBrowser } from '@angular/common';
+import { SkillsComponent } from "../features/skills/skills.component";
 
 @Component({
   selector: 'app-layout',
-  imports: [HomePageComponent, AboutComponent, EducationComponent],
+  imports: [HomePageComponent, AboutComponent, SkillsComponent, EducationComponent],
   templateUrl: './layout.component.html',
   styleUrl: './layout.component.scss',
 })
@@ -21,59 +22,59 @@ export class LayoutComponent implements AfterViewInit,AfterViewChecked {
     // console.log(this.sections);
   }
   ngAfterViewInit(): void {
-    this.breakPointObserver.observe([
-      Breakpoints.Web,
-      Breakpoints.Tablet
-    ])
-    .subscribe({
-      next:(isWeb) => {
-        if (isWeb.matches && isPlatformBrowser(this.platformId)) {
-          gsap.defaults({ease: 'none', duration: 100});
-          gsap.registerPlugin(ScrollTrigger);
-          gsap.utils.toArray('.more-sections').forEach((section : any, index : number, sections: any) => {
-            let i = 0;
-            // while (i < (sections[0].children as HTMLCollection).length) {
-            //   const val = (sections[0].children as HTMLCollection).item(i);
-            //   console.log(val);
-            //   i++;
-            // }
-            console.log(sections.length);
-            while (i < (sections[0].childNodes as NodeList).length) {
-              const val = (sections[0].children as NodeList).item(i);
-              console.log(val);
-              i++;
-            }
-            let tl = gsap.timeline({
-              scrollTrigger: {
-                trigger: section,
-                start: 'start start',
-                end: () => "+100px",// + (section.offsetWidth),
-                pin: true,
-                scrub: 1,
-                anticipatePin: 1,
-                markers: true,
-                pinSpacing: true,
-                fastScrollEnd: true,
-                // onEnter: () => this.setActive(section, index),
-                // onLeave: () => this.clearActive(section, index),
-                // onEnterBack: () => this.setActive(section, index),
-                // onLeaveBack: () => this.clearActive(section, index),
-                // onToggle: (self) => {
-                //   if (self.isActive) this.setActive(section, index);
-                //   else this.clearActive(section, index);
-                // }
-              }
-            });
-            tl
-            .fromTo(section.querySelector(".about-section"), { xPercent: 0, x: 0, opacity: 1, zIndex: 1}, {xPercent: 0, opacity: 0, zIndex: 0, ease: 'back.in'}, "+=4")
-              // ...and the image the opposite way (at the same time)
-            .fromTo(section.querySelector(".skills-section"), {xPercent: 0, x: 0, opacity: 0, zIndex: 0, duration: 0.5, ease: 'bounce.in'}, {xPercent: -100, opacity: 1, zIndex: 1, ease: 'circ.inOut' })
-            // .add(() => gsap.set(section))
-            // .fromTo(section.querySelector(".projects-section"), {xPercent: -100, x: 0}, {xPercent: -200}, "+=10");
-          });
-        }
-      }
-    });
+    // this.breakPointObserver.observe([
+    //   Breakpoints.Web,
+    //   Breakpoints.Tablet
+    // ])
+    // .subscribe({
+    //   next:(isWeb) => {
+    //     if (isWeb.matches && isPlatformBrowser(this.platformId)) {
+    //       gsap.defaults({ease: 'none', duration: 100});
+    //       gsap.registerPlugin(ScrollTrigger);
+    //       gsap.utils.toArray('.more-sections').forEach((section : any, index : number, sections: any) => {
+    //         let i = 0;
+    //         // while (i < (sections[0].children as HTMLCollection).length) {
+    //         //   const val = (sections[0].children as HTMLCollection).item(i);
+    //         //   console.log(val);
+    //         //   i++;
+    //         // }
+    //         console.log(sections.length);
+    //         while (i < (sections[0].childNodes as NodeList).length) {
+    //           const val = (sections[0].children as NodeList).item(i);
+    //           console.log(val);
+    //           i++;
+    //         }
+    //         let tl = gsap.timeline({
+    //           scrollTrigger: {
+    //             trigger: section,
+    //             start: 'start start',
+    //             end: () => "+100px",// + (section.offsetWidth),
+    //             pin: true,
+    //             scrub: 0.5,
+    //             anticipatePin: 1,
+    //             markers: true,
+    //             pinSpacing: true,
+    //             fastScrollEnd: true,
+    //             // onEnter: () => this.setActive(section, index),
+    //             // onLeave: () => this.clearActive(section, index),
+    //             // onEnterBack: () => this.setActive(section, index),
+    //             // onLeaveBack: () => this.clearActive(section, index),
+    //             // onToggle: (self) => {
+    //             //   if (self.isActive) this.setActive(section, index);
+    //             //   else this.clearActive(section, index);
+    //             // }
+    //           }
+    //         });
+    //         tl
+    //         .fromTo(section.querySelector(".about-section"), { xPercent: 0, x: 0, opacity: 1, zIndex: 1}, {xPercent: 0, opacity: 0, zIndex: 0, ease: 'back.in'}, "+=10")
+    //           // ...and the image the opposite way (at the same time)
+    //         .fromTo(section.querySelector(".skills-section"), {xPercent: -50, x: 0, opacity: 0, zIndex: 0, duration: 0.5, ease: 'bounce.in'}, {xPercent: -100, opacity: 1, zIndex: 1, ease: 'circ.inOut' })
+    //         // .add(() => gsap.set(section))
+    //         // .fromTo(section.querySelector(".projects-section"), {xPercent: -100, x: 0}, {xPercent: -200}, "+=10");
+    //       });
+    //     }
+    //   }
+    // });
     // let container = document.querySelector('.container');
     // let sections = document.querySelectorAll('.panel');
     // gsap.to(sections, {

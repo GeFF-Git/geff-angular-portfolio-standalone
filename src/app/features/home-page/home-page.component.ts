@@ -1,4 +1,4 @@
-import { trigger, transition, style, animate } from '@angular/animations';
+import { trigger, transition, style, animate, state } from '@angular/animations';
 import { CommonModule, isPlatformBrowser } from '@angular/common';
 import { AfterViewInit, Component, ElementRef, Inject, NgZone, OnDestroy, OnInit, PLATFORM_ID, ViewChild } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
@@ -6,18 +6,28 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/all';
 import _gsap from 'gsap/gsap-core';
-gsap.registerPlugin(ScrollTrigger);
+// gsap.registerPlugin(ScrollTrigger);
 @Component({
   selector: 'app-home-page',
   imports: [CommonModule],
   templateUrl: './home-page.component.html',
   styleUrl: './home-page.component.scss',
   animations: [trigger('fadeIn', [
-    transition(':enter', [
+    state('noAnimation',
+      style ({
+        opacity: 1,
+        transform: "translateY(0)"
+      })
+    ),
+    state('animate', style({
+      opacity: 1,
+      transform: 'translateY(0)'
+    })),
+    transition('void => animate', [
         style({ opacity: 0, transform: 'translateY(2rem)' }),
         animate('600ms ease-in', style({ opacity: 1, transform: 'translateY(0)' }))
     ]),
-    transition(':leave', [
+    transition('animate => void', [
         // style({opacity : 0, transform : 'translateY(-2rem)'}),
         animate('600ms ease-out', style({ opacity: 0, transform: 'translateY(-0.5rem)' })),
     ]),
@@ -27,13 +37,14 @@ gsap.registerPlugin(ScrollTrigger);
 export class HomePageComponent implements AfterViewInit,OnInit,OnDestroy {
   constructor(@Inject(PLATFORM_ID) private platformId : object, private ngZone : NgZone){}
 
-  strings : string[] = ['a ui-developer', 'an api-developer', 'a photographer'];
+  strings : string[] = ['a ui-developer', 'an api-developer', 'a photographer', 'a traveller'];
   skills : string[] = [];
   currentIndex = 0;
   currentSkill : string = 'Loading...';
   interval !: NodeJS.Timeout;
   timeout !: NodeJS.Timeout;
   isShowText = true;
+  shouldFadeIn  = false;
   @ViewChild('scrollContainer', { static: true }) scrollContainer !: ElementRef;
   @ViewChild('scrollContent', { static: true }) scrollContent!: ElementRef;
   @ViewChild('sectionContainer', { static: true }) sectionContainer !: ElementRef;
@@ -66,6 +77,9 @@ export class HomePageComponent implements AfterViewInit,OnInit,OnDestroy {
     //     .fromTo(section.querySelector(".projects-section"), {xPercent: -100, x: 0}, {xPercent: -200}, "+=10");
     //   });
     // }
+    setTimeout(() => {
+      this.shouldFadeIn = true;
+    }, 2000);
   }
 
   loadSKills(){

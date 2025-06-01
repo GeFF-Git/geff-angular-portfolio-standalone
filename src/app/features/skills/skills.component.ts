@@ -8,4 +8,10 @@ import { Component } from '@angular/core';
 })
 export class SkillsComponent {
 
+  isDesignerActive: boolean = false;
+  skillsContainer: string[] = [];
+  onSkillClick(skill: string){
+    this.isDesignerActive = !this.isDesignerActive;
+  }
+
 }

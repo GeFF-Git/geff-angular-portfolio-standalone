@@ -1,0 +1,31 @@
+.skills{
+    display: block;
+    margin: 1rem;
+}
+
+.main_title{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+//   :host{
+//     width: 100dvw;
+//     height: 100dvh;
+//   }
+
+  .skills-content{
+    margin: 2rem;
+    padding: 2rem;
+    gap: 4rem;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    align-items: center;
+    justify-content: space-evenly;
+  }
+
+  .html{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }

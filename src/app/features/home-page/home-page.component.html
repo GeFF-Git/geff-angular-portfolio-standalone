@@ -8,8 +8,7 @@
               </div>
               <div class="c1-2">
                   @if (isShowText) {
-
-                  <div [@fadeIn]>
+                  <div [@fadeIn]="currentSkill !== 'Loading...' ? 'animate' : 'noAnimation'">
                       {{currentSkill}}
                   </div>
                   }

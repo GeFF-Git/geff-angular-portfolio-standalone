@@ -10,7 +10,7 @@
 #section-container{
   margin: 0;
   padding: 0;
-  display: flex;
+  // display: flex;
   // overflow: hidden;
   @media screen and (max-width: 576px) {
     display: inline;
@@ -19,6 +19,9 @@
   // position: relative;
 }
 
+.smooth-content{
+  margin-top: 0.5rem;
+}
 
 .panel-content{
   margin: 0;
@@ -65,3 +68,4 @@
 // .skills-section{
 //   z-index: 9999;
 // }
+
