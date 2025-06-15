@@ -1,0 +1,11 @@
+@for(skill of skillItem(); track skill){
+<div style="margin-top: 1rem;" class="linear-gradient-bg">
+    <div class="flex justify-between mb-1">
+        <span class="text-gray-900 font-normal">{{skill.skill}}</span>
+        <span class="text-gray-400 font-normal">{{skill.weightage}}</span>
+    </div>
+    <div class="w-full bg-[#c6c6e6] rounded-full h-2.5">
+        <div class="bg-[#6b6b9c] h-2.5 rounded-full" [ngStyle]="{width: skill.weightage}"></div>
+    </div>
+</div>
+}

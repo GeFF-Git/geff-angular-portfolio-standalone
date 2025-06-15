@@ -1,0 +1,22 @@
+.skills-content{
+    margin: 2rem;
+    padding: 2rem;
+    gap: 4rem;
+    display: grid;
+    // grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(auto-fit, minmax(40rem, 1fr));
+  }
+
+  .html{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .skill-header{
+    display: flex;
+    gap: 1rem;
+    h3{
+      margin-top: 0.5rem;
+    }
+  }

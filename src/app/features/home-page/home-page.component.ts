@@ -1,11 +1,6 @@
 import { trigger, transition, style, animate, state } from '@angular/animations';
 import { CommonModule, isPlatformBrowser } from '@angular/common';
 import { AfterViewInit, Component, ElementRef, Inject, NgZone, OnDestroy, OnInit, PLATFORM_ID, ViewChild } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { gsap } from 'gsap';
-import { ScrollTrigger } from 'gsap/all';
-import _gsap from 'gsap/gsap-core';
 // gsap.registerPlugin(ScrollTrigger);
 @Component({
   selector: 'app-home-page',
@@ -37,7 +32,7 @@ import _gsap from 'gsap/gsap-core';
 export class HomePageComponent implements AfterViewInit,OnInit,OnDestroy {
   constructor(@Inject(PLATFORM_ID) private platformId : object, private ngZone : NgZone){}
 
-  strings : string[] = ['a ui-developer', 'an api-developer', 'a photographer', 'a traveller'];
+  strings : string[] = ['A Frontend Developer', 'A Backend Developer', 'A Photographer', 'A Traveller'];
   skills : string[] = [];
   currentIndex = 0;
   currentSkill : string = 'Loading...';

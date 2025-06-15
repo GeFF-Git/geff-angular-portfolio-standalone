@@ -3,15 +3,12 @@ import { HomePageComponent } from '../features/home-page/home-page.component';
 import { AboutComponent } from "../features/about/about.component";
 import { EducationComponent } from "../features/education/education.component";
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
-import { gsap } from 'gsap';
-import { ScrollTrigger } from 'gsap/all';
-import _gsap from 'gsap/gsap-core';
-import { isPlatformBrowser } from '@angular/common';
 import { SkillsComponent } from "../features/skills/skills.component";
+import { QualificationsComponent } from '../features/qualifications/qualifications.component';
 
 @Component({
   selector: 'app-layout',
-  imports: [HomePageComponent, AboutComponent, SkillsComponent, EducationComponent],
+  imports: [HomePageComponent, AboutComponent, SkillsComponent, QualificationsComponent, EducationComponent],
   templateUrl: './layout.component.html',
   styleUrl: './layout.component.scss',
 })
