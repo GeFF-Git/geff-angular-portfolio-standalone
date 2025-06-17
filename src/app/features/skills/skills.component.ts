@@ -11,10 +11,12 @@ import { ISkillConfig } from './skills';
 export class SkillsComponent {
   config: ISkillConfig[] = [
     {
+      _id: window.crypto.randomUUID(),
       skillset: 'Frontend Developer',
+      isHovered: false,
       experience: '2 years of experience',
       expandable: true,
-      imgSrc: './../../../../assets/devicon--swagger (1).svg',
+      imgSrc: 'assets/devicon--frontend-developer.svg',
       skills: [
         {
           skill: 'HTML',
@@ -27,10 +29,12 @@ export class SkillsComponent {
       ]
     },
     {
+      _id: window.crypto.randomUUID(),
+      isHovered: false,
       skillset: 'Frontend Frameworks',
       experience: '2 years of experience',
       expandable: true,
-      imgSrc: './../../../../assets/devicon--angular.svg',
+      imgSrc: 'assets/devicon--angular.svg',
       skills: [
         {
           skill: 'Angular',
@@ -43,10 +47,12 @@ export class SkillsComponent {
       ]
     },
     {
+      _id: window.crypto.randomUUID(),
+      isHovered: false,
       skillset: 'Backend Developer',
       experience: '2 years of experience',
       expandable: true,
-      imgSrc: './../../../../assets/devicon--visualstudio.svg',
+      imgSrc: 'assets/devicon--visualstudio.svg',
       skills: [
         {
           skill: '.NET',

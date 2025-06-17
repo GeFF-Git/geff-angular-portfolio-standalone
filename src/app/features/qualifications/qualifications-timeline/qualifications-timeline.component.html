@@ -1,10 +1,12 @@
 <div class="tab-header">
     <div class="tab-btn-container">
-        <button class="tab-btn"> <svg class="tab-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+        <button class="tab-btn" [ngClass]="{'active': activeTab === 'Education'}" (click)="setActiveTab('Education')">
+            <svg class="tab-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
                 <path d="M22 10v6M2 10l10-5 10 5-10 5z" />
                 <path d="M6 12v5c3 3 9 3 12 0v-5" />
             </svg>Education</button>
-        <button class="tab-btn"> <svg class="tab-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+        <button class="tab-btn" [ngClass]="{'active': activeTab === 'Work'}" (click)="setActiveTab('Work')"> <svg
+                class="tab-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
                 <rect x="2" y="3" width="20" height="14" rx="2" ry="2" />
                 <line x1="8" y1="21" x2="16" y2="21" />
                 <line x1="12" y1="17" x2="12" y2="21" />
@@ -13,6 +15,7 @@
         </button>
     </div>
     <div class="tab-content">
-        
+        <app-qualifications-timeline-item
+            [qualificationsConfig]="activeTab === 'Education' ? educationConfig : workConfig" [animateItemsInput]="animateItems"></app-qualifications-timeline-item>
     </div>
 </div>

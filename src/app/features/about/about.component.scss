@@ -10,111 +10,138 @@
   letter-spacing: 0.2px;
 }
 
-.about_container{
+.about_container {
   width: 100vw;
   height: 100vh;
 }
-.about_experience{
+
+.about_experience {
   display: flex;
   justify-content: space-between;
-  @media screen and (max-width: 576px) {
-    
-  }
-  .years{
+
+  @media screen and (max-width: 576px) {}
+
+  .years {
     font-weight: 900;
     font-size: 30px;
   }
 }
-.main_title{
+
+.main_title {
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
-.main_content{
+.main_content {
   display: flex;
   justify-content: space-evenly;
+
   @media screen and (max-width: 576px) {
     flex-direction: column;
   }
-  img{
+
+  img {
     width: 45vw;
+
     @media screen and (max-width: 576px) {
       width: 100vw;
     }
   }
 }
-.about_content{
+
+.about_content {
   width: 50vw;
   display: flex;
   flex-direction: column;
   // align-items: center;
   justify-content: space-between;
+
   @media screen and (max-width: 576px) {
     // flex-direction: row;
     width: 90vw;
     height: 40vh;
   }
-  .download_button{
+
+  .download_button {
     width: 10rem;
     height: 3rem;
     border-radius: 0.5rem;
     position: relative;
     overflow: hidden;
-    border: 2px solid teal;
+    border: 2px solid;
+    border-image: linear-gradient(90deg, #6366f1, #8b5cf6, #ec4899) 1;
     box-shadow: 0 2px 4px rgba(0, 128, 128, 0.1);
     transition: all 0.3s ease;
-    &:hover{
+
+    &:hover {
       box-shadow: 0 4px 8px rgba(0, 128, 128, 0.2);
       transform: translateY(-1px);
       // transform: translateX(-1px);
       // transform: rotate(360deg);
       border: none;
-      &::after{
+
+      &::after {
         top: 0;
-        left: 0 ;
+        left: 0;
         transition: all 0.4s ease-in;
       }
+
       a {
-        color: white; // Change text color on hover
+      -webkit-text-fill-color: white;
+        color: white !important; // Change text color on hover
         z-index: 2; // Ensure link stays above the background
-        
+
         svg path {
           fill: white; // Change SVG color on hover
         }
       }
     }
-    &:not(:hover){
-      &::after{
+
+    &:not(:hover) {
+      &::after {
         top: 100px;
         left: 200px;
         transition: all 0.4s ease-in;
       }
     }
-    &::after{
+
+    &::after {
       content: '';
       position: absolute;
       top: 100px;
       left: 200px;
       width: 10rem;
       height: 3rem;
-      background-color: teal;
+      // background-color: #6366f1;
+      background: linear-gradient(90deg, #6366f1, #8b5cf6, #ec4899);
       z-index: 1; // Place background behind the link
     }
-    a{
+
+    a {
       position: relative; // Add this to create stacking context
       padding: 0.7rem;
       align-items: center;
       display: flex;
       justify-content: space-evenly;
       padding: 0.7rem;
-      color: teal;
+      // color: #6366f1;
+
+      // To make the text-color linear gradient
+      background: linear-gradient(90deg, #6366f1, #8b5cf6, #ec4899);
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+      color: transparent;
+      /* Fallback for non-webkit browsers */
       width: 100%;
       height: 100%;
       transition: color 0.2s ease-in; // Smooth transition for text color
       font-weight: 500;
-      svg{
+
+      svg {
         height: 1.5rem !important;
+
         path {
           transition: fill 0.2s ease-in; // Smooth transition for SVG color
         }

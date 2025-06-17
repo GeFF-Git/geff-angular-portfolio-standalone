@@ -60,9 +60,14 @@
         div {
             position: absolute;
             top: 0rem;
-            // left: 3rem;
-            // color: teal;
-            color: hsl(180, 100%, 25%);
+            // color: #6366f1;
+            
+            // To make the text-color linear gradient
+            background: linear-gradient(90deg, #6366f1, #8b5cf6, #ec4899);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            color: transparent; /* Fallback for non-webkit browsers */
             @media (max-width: 576px) {
               width: 100%;
               // left: 2.1rem;
@@ -86,14 +91,3 @@
     }
 }
 }
-
-
-// .timeline-yr {
-//     background: #474559;
-//     border-radius: 100%;
-//     position: absolute;
-//     width: 75px;
-//     height: 75px;
-//     line-height: 75px;
-//     text-align: center;
-// }

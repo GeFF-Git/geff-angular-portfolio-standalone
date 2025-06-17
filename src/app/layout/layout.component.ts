@@ -1,14 +1,14 @@
 import { AfterViewChecked, AfterViewInit, Component, ElementRef, Inject, PLATFORM_ID, Renderer2, viewChild } from '@angular/core';
 import { HomePageComponent } from '../features/home-page/home-page.component';
 import { AboutComponent } from "../features/about/about.component";
-import { EducationComponent } from "../features/education/education.component";
-import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
+import { BreakpointObserver } from '@angular/cdk/layout';
 import { SkillsComponent } from "../features/skills/skills.component";
 import { QualificationsComponent } from '../features/qualifications/qualifications.component';
+import { FooterComponent } from '../features/footer/footer.component';
 
 @Component({
   selector: 'app-layout',
-  imports: [HomePageComponent, AboutComponent, SkillsComponent, QualificationsComponent, EducationComponent],
+  imports: [HomePageComponent, AboutComponent, SkillsComponent, QualificationsComponent, FooterComponent],
   templateUrl: './layout.component.html',
   styleUrl: './layout.component.scss',
 })

@@ -8,12 +8,12 @@ import { SkillItemComponent } from "./skill-item/skill-item.component";
   templateUrl: './skills-list-view.component.html',
   styleUrl: './skills-list-view.component.scss'
 })
-export class SkillsListViewComponent implements OnInit {
-  ngOnInit(): void {
-    console.log(this.skillConfig);
-  }
+export class SkillsListViewComponent {
   isDesignerActive = true;
   skillConfig = input<ISkillConfig[]>([]);
+  isHovered: boolean = false;
+  hoverColor: string = '#FFFFFFCC';
+  defaultColor: string = '#6366f1';
   onSkillClick(args: ISkillConfig){
     args.expandable = !args.expandable;
   }

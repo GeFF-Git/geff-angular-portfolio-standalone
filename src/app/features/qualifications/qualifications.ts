@@ -1,11 +1,13 @@
-import { ISkill } from "../skills/skills";
+import { UUID } from "crypto";
 
 export interface IQualificationsConfig {
+    _id: UUID;
     qualificationType: 'Education' | 'Work';
     title: string;
     companyOrInstitute: string;
-    timeline: string;
+    startYear: string;
+    endYear: string;
     location: string;
     content: string;
-    skillsLearnt: ISkill[];
+    skillsLearnt: string[];
 }
