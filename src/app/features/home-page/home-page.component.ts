@@ -74,7 +74,7 @@ export class HomePageComponent implements AfterViewInit,OnInit,OnDestroy {
     // }
     setTimeout(() => {
       this.shouldFadeIn = true;
-    }, 2000);
+    }, 1000);
   }
 
   loadSKills(){

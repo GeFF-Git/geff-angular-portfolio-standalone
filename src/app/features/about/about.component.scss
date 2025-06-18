@@ -69,8 +69,13 @@
     border-radius: 0.5rem;
     position: relative;
     overflow: hidden;
-    border: 2px solid;
-    border-image: linear-gradient(90deg, #6366f1, #8b5cf6, #ec4899) 1;
+    // border-image: linear-gradient(90deg, #6366f1, #8b5cf6, #ec4899) 1;
+    // background-image: rgba(255, 255, 255, 0.95);
+    // background-origin: border-box;
+     background: 
+    linear-gradient(white 0 0) padding-box, /*this is your grey background*/
+    linear-gradient(90deg, #6366f1, #8b5cf6, #ec4899) border-box;
+    border: 2px solid transparent;
     box-shadow: 0 2px 4px rgba(0, 128, 128, 0.1);
     transition: all 0.3s ease;
 
@@ -84,16 +89,16 @@
       &::after {
         top: 0;
         left: 0;
-        transition: all 0.4s ease-in;
+        transition: all 0.1s ease-in;
       }
 
       a {
-      -webkit-text-fill-color: white;
-        color: white !important; // Change text color on hover
+      -webkit-text-fill-color: rgba(255, 255, 255, 0.95) !important;
+        color: rgba(255, 255, 255, 0.95) !important; // Change text color on hover
         z-index: 2; // Ensure link stays above the background
 
         svg path {
-          fill: white; // Change SVG color on hover
+          fill: rgba(255, 255, 255, 0.95) !important; // Change SVG color on hover
         }
       }
     }

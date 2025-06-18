@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { AfterViewInit, Component, NgZone, OnInit, inject, input } from '@angular/core';
+import { Component, NgZone, OnInit, inject, input } from '@angular/core';
 import { IQualificationsConfig } from '../qualifications';
 import { QualificationsTimelineItemComponent } from './qualifications-timeline-item/qualifications-timeline-item.component';
 
