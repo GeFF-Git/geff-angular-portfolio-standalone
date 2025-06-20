@@ -11,19 +11,26 @@
 }
 
 .about_container {
-  width: 100vw;
-  height: 100vh;
+  width: 100dvw;
+  min-height: 100dvh;
+  @media screen and (max-width: 576px) {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
 }
 
 .about_experience {
   display: flex;
   justify-content: space-between;
-
-  @media screen and (max-width: 576px) {}
-
   .years {
     font-weight: 900;
     font-size: 30px;
+  }
+  span{
+    --tw-text-opacity: 1;
+    color: rgb(107 114 128 / var(--tw-text-opacity, 1)) /* #6b7280 */;
   }
 }
 
@@ -35,17 +42,22 @@
 
 .main_content {
   display: flex;
-  justify-content: space-evenly;
-
+  min-height: 100dvh;
+  gap: 2rem;
   @media screen and (max-width: 576px) {
     flex-direction: column;
   }
 
   img {
     width: 45vw;
-
+    max-height: 80dvh;
     @media screen and (max-width: 576px) {
-      width: 100vw;
+      width: 100dvw;
+      height: 60dvh;
+    }
+    @media screen and (min-width: 576px) and (max-width: 1024px) {
+      width: 100dvw;
+      height: 80dvh;
     }
   }
 }
@@ -54,13 +66,17 @@
   width: 50vw;
   display: flex;
   flex-direction: column;
+  gap: 3rem;
   // align-items: center;
-  justify-content: space-between;
+  min-height: 100dvh;
+  p{
+    line-height: 1.25rem;
+    text-align: justify;
+  }
 
   @media screen and (max-width: 576px) {
-    // flex-direction: row;
     width: 90vw;
-    height: 40vh;
+    overflow-y: auto;
   }
 
   .download_button {
@@ -69,9 +85,6 @@
     border-radius: 0.5rem;
     position: relative;
     overflow: hidden;
-    // border-image: linear-gradient(90deg, #6366f1, #8b5cf6, #ec4899) 1;
-    // background-image: rgba(255, 255, 255, 0.95);
-    // background-origin: border-box;
      background: 
     linear-gradient(white 0 0) padding-box, /*this is your grey background*/
     linear-gradient(90deg, #6366f1, #8b5cf6, #ec4899) border-box;
@@ -82,8 +95,6 @@
     &:hover {
       box-shadow: 0 4px 8px rgba(0, 128, 128, 0.2);
       transform: translateY(-1px);
-      // transform: translateX(-1px);
-      // transform: rotate(360deg);
       border: none;
 
       &::after {
@@ -151,6 +162,10 @@
           transition: fill 0.2s ease-in; // Smooth transition for SVG color
         }
       }
+    }
+
+    @media screen and (max-width: 576px) {
+      margin-left: 25dvw;
     }
   }
 }

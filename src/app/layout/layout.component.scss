@@ -1,3 +1,9 @@
+:host{
+  @media (max-width: 768px) {
+    margin: -0.5rem
+  }
+}
+
 .content{
   height: calc(100vh - 7.5rem);
   @media (max-width: 576px) {
