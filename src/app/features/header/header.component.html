@@ -26,7 +26,7 @@
     @else{
     <button class="mobile-menu-toggle" (click)="toggleMobileMenu()" [attr.aria-label]="'Toggle mobile menu'">
       @for(line of hamburgerLines; track $index){
-      <span class="hamburger-line" [class.active]="isMobileMenuOpen"></span>
+      <span class="hamburger-line line-{{$index}}" [class.active]="isMobileMenuOpen"></span>
       }
     </button>
     }

@@ -8,7 +8,7 @@ import { map } from 'rxjs';
   selector: 'app-header',
   imports: [CommonModule],
   templateUrl: './header.component.html',
-  styleUrl: './header.component.scss'
+  styleUrls: ['./header.component.scss', './header-mobile-view.component.scss']
 })
 export class HeaderComponent implements OnInit {
   isScrolled = false;
@@ -31,6 +31,7 @@ export class HeaderComponent implements OnInit {
     // { id: 'contact', label: 'Contact', icon: '📧' }
   ];
 
+  sections = ['home', 'about', 'skills', 'qualification'];
   breakpointObserver = inject(BreakpointObserver);
   breakpointSignal = toSignal(this.breakpointObserver.observe([
     '(max-width: 768px)', // Portrait phones and small tablets,
@@ -153,13 +154,12 @@ shouldShowMobileMenu = computed(() => this.isMobilePortrait() || this.isMobileGe
   }
 
   private updateActiveSection() {
-    const sections = ['home', 'about', 'skills', 'qualification'];
-    const scrollPosition = window.pageYOffset + 100; // Offset for header
+    const scrollPosition = window.scrollY + 100; // Offset for header
     
-    for (let i = sections.length - 1; i >= 0; i--) {
-      const section = document.getElementById(sections[i]);
+    for (let i = this.sections.length - 1; i >= 0; i--) {
+      const section = document.getElementById(this.sections[i]);
       if (section && section.offsetTop <= scrollPosition) {
-        this.activeSection = sections[i];
+        this.activeSection = this.sections[i];
         break;
       }
     }

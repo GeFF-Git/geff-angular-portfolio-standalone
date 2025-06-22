@@ -20,11 +20,15 @@ export class SkillsComponent {
       skills: [
         {
           skill: 'HTML',
-          weightage: '70%'
+          weightage: '80%'
         },
         {
           skill: 'CSS',
-          weightage: '90%'
+          weightage: '80%'
+        },
+        {
+          skill: 'JS',
+          weightage: '60%'
         }
       ]
     },
@@ -42,7 +46,7 @@ export class SkillsComponent {
         },
         {
           skill: 'React',
-          weightage: '30%'
+          weightage: '20%'
         }
       ]
     },

@@ -16,13 +16,13 @@ export class QualificationsComponent {
       {
         _id: window.crypto.randomUUID(),
         qualificationType: 'Education',
-        title: 'Bachelor of Science in Computer Science',
-        companyOrInstitute: 'Stanford University',
+        title: 'Bachelors Of Technology In Information Technology',
+        companyOrInstitute: 'Loyola - ICAM College Of Engineering And Technology',
         startYear: '2018',
         endYear: '2022',
-        location: 'Stanford, CA',
-        content: 'Comprehensive computer science program covering algorithms, data structures, software engineering, and machine learning. Graduated with honors and completed a senior capstone project on distributed systems.',
-        skillsLearnt: ['Python', 'Java', 'C++', 'Data Structures', 'Algorithms', 'Machine Learning', 'Database Design', 'Software Engineering']
+        location: 'Chennai, Tamilnadu, India',
+        content: 'Comprehensive computer science program covering algorithms, data structures, and maths. Graduated first class in the course and completed a capstone project.',
+        skillsLearnt: ['Python', 'Java', 'C++', 'Data Structures', 'Algorithms', 'Maths']
       },
       {
         _id: window.crypto.randomUUID(),
@@ -38,13 +38,13 @@ export class QualificationsComponent {
       {
         _id: window.crypto.randomUUID(),
         qualificationType: 'Education',
-        title: 'Master of Business Administration',
-        companyOrInstitute: 'Harvard Business School',
-        startYear: '2020',
-        endYear: '2022',
-        location: 'Boston, MA',
-        content: 'Part-time MBA program focused on technology management and entrepreneurship. Completed case studies on digital transformation and led a consulting project for a Fortune 500 company.',
-        skillsLearnt: ['Strategic Planning', 'Financial Analysis', 'Leadership', 'Project Management', 'Digital Transformation', 'Market Analysis']
+        title: 'Higher Secondary',
+        companyOrInstitute: 'St. Marys\'s Anglo Indian Higher Secondary School',
+        startYear: '2017',
+        endYear: '2018',
+        location: 'Chennai, Tamilnadu, India',
+        content: 'Acquired intermediate  knowledge in mathematics, physics, chemistry and computer science. Graduated with a grade of 92.4%',
+        skillsLearnt: ['Maths', 'Physics', 'Chemistry', 'Computer Science', 'English']
       },
       {
         _id: window.crypto.randomUUID(),
@@ -60,13 +60,13 @@ export class QualificationsComponent {
       {
         _id: window.crypto.randomUUID(),
         qualificationType: 'Education',
-        title: 'AWS Certified Solutions Architect',
-        companyOrInstitute: 'Amazon Web Services',
-        startYear: '2023',
-        endYear: '2023',
+        title: 'Angular & NodeJS - The MEAN Stack Guide [2024 Edition]',
+        companyOrInstitute: 'Udemy',
+        startYear: '2024',
+        endYear: '2024',
         location: 'Online',
-        content: 'Professional certification demonstrating expertise in designing distributed systems on AWS. Covered best practices for security, reliability, performance efficiency, and cost optimization.',
-        skillsLearnt: ['AWS Services', 'Cloud Architecture', 'Security Best Practices', 'Cost Optimization', 'High Availability Design', 'Disaster Recovery']
+        content: 'Professional certification demonstrating expertise in MEAN stack on Udemy. Learnt to build a full stack application using Angular, MongoDb, ExpressJs and NodeJS .Covered best practices for secure, reliable, efficient, and optimized code.',
+        skillsLearnt: ['Angular', 'MongoDb', 'NodeJs', 'ExpressJs']
       },
       {
         _id: window.crypto.randomUUID(),

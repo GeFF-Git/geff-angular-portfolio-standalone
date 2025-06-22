@@ -12,7 +12,7 @@
 
 .about_container {
   width: 100dvw;
-  min-height: 100dvh;
+  min-height: 50dvh;
   @media screen and (max-width: 576px) {
     display: flex;
     flex-direction: column;
@@ -42,18 +42,20 @@
 
 .main_content {
   display: flex;
-  min-height: 100dvh;
+  min-height: 50dvh;
   gap: 2rem;
+  align-items: center;
   @media screen and (max-width: 576px) {
     flex-direction: column;
   }
 
   img {
     width: 45vw;
-    max-height: 80dvh;
+    max-height: 60dvh;
+    object-fit: cover;
     @media screen and (max-width: 576px) {
       width: 100dvw;
-      height: 60dvh;
+      height: 40dvh;
     }
     @media screen and (min-width: 576px) and (max-width: 1024px) {
       width: 100dvw;
@@ -68,7 +70,8 @@
   flex-direction: column;
   gap: 3rem;
   // align-items: center;
-  min-height: 100dvh;
+  justify-content: center;
+  min-height: 50dvh;
   p{
     line-height: 1.25rem;
     text-align: justify;
