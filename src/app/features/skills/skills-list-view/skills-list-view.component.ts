@@ -1,4 +1,4 @@
-import { Component, Input, OnInit, input } from '@angular/core';
+import { Component, input } from '@angular/core';
 import { ISkillConfig } from '../skills';
 import { SkillItemComponent } from "./skill-item/skill-item.component";
 

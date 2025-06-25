@@ -44,7 +44,7 @@
   display: flex;
   min-height: 50dvh;
   gap: 2rem;
-  align-items: center;
+  // align-items: center;
   @media screen and (max-width: 576px) {
     flex-direction: column;
   }
@@ -70,7 +70,7 @@
   flex-direction: column;
   gap: 3rem;
   // align-items: center;
-  justify-content: center;
+  // justify-content: center;
   min-height: 50dvh;
   p{
     line-height: 1.25rem;

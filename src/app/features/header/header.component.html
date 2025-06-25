@@ -53,6 +53,7 @@
   </div>
 
   <!-- Mobile Navigation Overlay -->
+  @if(breakpointSignal()){
   <div class="mobile-nav-overlay" [class.open]="isMobileMenuOpen" (click)="closeMobileMenu()">
     <nav class="mobile-nav" (click)="$event.stopPropagation()">
       <div class="mobile-nav-header">
@@ -92,4 +93,5 @@
       </div>
     </nav>
   </div>
+}
 </header>
