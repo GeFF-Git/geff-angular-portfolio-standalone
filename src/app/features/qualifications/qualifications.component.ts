@@ -28,12 +28,12 @@ export class QualificationsComponent {
         _id: window.crypto.randomUUID(),
         qualificationType: 'Work',
         title: 'Software Engineer',
-        companyOrInstitute: 'Google',
-        startYear: '2022',
-        endYear: '2024',
-        location: 'Mountain View, CA',
-        content: 'Developed and maintained large-scale web applications serving millions of users. Collaborated with cross-functional teams to deliver features and optimize performance. Led code reviews and mentored junior developers.',
-        skillsLearnt: ['React', 'TypeScript', 'Node.js', 'Kubernetes', 'Google Cloud Platform', 'Microservices', 'Team Leadership', 'Code Review']
+        companyOrInstitute: 'Clarium',
+        startYear: '2023',
+        endYear: '2025',
+        location: 'Chennai',
+        content: 'Full Stack Developer with 2+ years of experience in building scalable web applications using Angular, .NET, Java, SQL, and MongoDB. Currently working at Clarium Tech, delivering cloud-based, secure, and high-performance solutions with a focus on reusable components, scalable APIs, and optimized database queries.',
+        skillsLearnt: ['Angular', '.NET Core', '.NET Framework', 'Java', 'Springboot', 'SQL', 'MongoDB', 'TypeScript', 'Microservices', 'Team Leadership', 'Code Review']
       },
       {
         _id: window.crypto.randomUUID(),
@@ -49,13 +49,13 @@ export class QualificationsComponent {
       {
         _id: window.crypto.randomUUID(),
         qualificationType: 'Work',
-        title: 'Senior Software Engineer',
-        companyOrInstitute: 'Microsoft',
-        startYear: '2024',
-        endYear: '2025',
-        location: 'Seattle, WA',
-        content: 'Currently leading a team of 5 engineers working on Azure cloud services. Responsible for architecture decisions, performance optimization, and ensuring high availability of critical systems.',
-        skillsLearnt: ['Azure', 'C#', '.NET Core', 'Docker', 'DevOps', 'System Architecture', 'Performance Optimization', 'Team Management']
+        title: 'Associate',
+        companyOrInstitute: 'Revature',
+        startYear: '2022',
+        endYear: '2023',
+        location: 'Chennai',
+        content: 'Revature\'s training program on .NET full- stack is a phenomenal learning ground for any aspiring software developer',
+        skillsLearnt: ['Azure', 'C#', '.NET Core', 'SQL', 'Angular', 'Docker', 'DevOps', 'System Architecture', 'Performance Optimization']
       },
       {
         _id: window.crypto.randomUUID(),
@@ -68,17 +68,17 @@ export class QualificationsComponent {
         content: 'Professional certification demonstrating expertise in MEAN stack on Udemy. Learnt to build a full stack application using Angular, MongoDb, ExpressJs and NodeJS .Covered best practices for secure, reliable, efficient, and optimized code.',
         skillsLearnt: ['Angular', 'MongoDb', 'NodeJs', 'ExpressJs']
       },
-      {
-        _id: window.crypto.randomUUID(),
-        qualificationType: 'Work',
-        title: 'Frontend Developer Intern',
-        companyOrInstitute: 'Airbnb',
-        startYear: '2021',
-        endYear: '2021',
-        location: 'San Francisco, CA',
-        content: 'Summer internship focused on improving user experience for the booking platform. Implemented responsive design components and collaborated with UX designers to enhance mobile interface.',
-        skillsLearnt: ['React', 'CSS3', 'JavaScript', 'Responsive Design', 'User Experience', 'Git', 'Agile Development']
-      }
+      // {
+      //   _id: window.crypto.randomUUID(),
+      //   qualificationType: 'Work',
+      //   title: 'Frontend Developer Intern',
+      //   companyOrInstitute: 'Airbnb',
+      //   startYear: '2021',
+      //   endYear: '2021',
+      //   location: 'San Francisco, CA',
+      //   content: 'Summer internship focused on improving user experience for the booking platform. Implemented responsive design components and collaborated with UX designers to enhance mobile interface.',
+      //   skillsLearnt: ['React', 'CSS3', 'JavaScript', 'Responsive Design', 'User Experience', 'Git', 'Agile Development']
+      // }
     ];
 
 }

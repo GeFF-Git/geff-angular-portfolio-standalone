@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
-import { SkillsListViewComponent } from './skills-list-view/skills-list-view.component';
 import { ISkillConfig } from './skills';
+import { SkillsListViewComponent } from './skills-list-view/skills-list-view.component';
 
 @Component({
   selector: 'app-skills',

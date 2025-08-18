@@ -1,4 +1,4 @@
-import { trigger, transition, style, animate, state } from '@angular/animations';
+import { animate, state, style, transition, trigger } from '@angular/animations';
 import { CommonModule, isPlatformBrowser } from '@angular/common';
 import { AfterViewInit, Component, ElementRef, Inject, NgZone, OnDestroy, OnInit, PLATFORM_ID, ViewChild } from '@angular/core';
 // gsap.registerPlugin(ScrollTrigger);
@@ -9,7 +9,7 @@ import { AfterViewInit, Component, ElementRef, Inject, NgZone, OnDestroy, OnInit
   styleUrl: './home-page.component.scss',
   animations: [trigger('fadeIn', [
     state('noAnimation',
-      style ({
+      style({
         opacity: 1,
         transform: "translateY(0)"
       })
@@ -19,27 +19,27 @@ import { AfterViewInit, Component, ElementRef, Inject, NgZone, OnDestroy, OnInit
       transform: 'translateY(0)'
     })),
     transition('void => animate', [
-        style({ opacity: 0, transform: 'translateY(2rem)' }),
-        animate('600ms ease-in', style({ opacity: 1, transform: 'translateY(0)' }))
+      style({ opacity: 0, transform: 'translateY(2rem)' }),
+      animate('600ms ease-in', style({ opacity: 1, transform: 'translateY(0)' }))
     ]),
     transition('animate => void', [
-        // style({opacity : 0, transform : 'translateY(-2rem)'}),
-        animate('600ms ease-out', style({ opacity: 0, transform: 'translateY(-0.5rem)' })),
+      // style({opacity : 0, transform : 'translateY(-2rem)'}),
+      animate('600ms ease-out', style({ opacity: 0, transform: 'translateY(-0.5rem)' })),
     ]),
-])
-],
+  ])
+  ],
 })
-export class HomePageComponent implements AfterViewInit,OnInit,OnDestroy {
-  constructor(@Inject(PLATFORM_ID) private platformId : object, private ngZone : NgZone){}
+export class HomePageComponent implements AfterViewInit, OnInit, OnDestroy {
+  constructor(@Inject(PLATFORM_ID) private platformId: object, private ngZone: NgZone) { }
 
-  strings : string[] = ['A Frontend Developer', 'A Backend Developer', 'A Photographer', 'A Traveller'];
-  skills : string[] = [];
+  strings: string[] = ['A Frontend Developer', 'A Backend Developer', 'A Photographer', 'A Traveller'];
+  skills: string[] = [];
   currentIndex = 0;
-  currentSkill : string = 'Loading...';
+  currentSkill: string = 'Loading...';
   interval !: NodeJS.Timeout;
   timeout !: NodeJS.Timeout;
   isShowText = true;
-  shouldFadeIn  = false;
+  shouldFadeIn = false;
   @ViewChild('scrollContainer', { static: true }) scrollContainer !: ElementRef;
   @ViewChild('scrollContent', { static: true }) scrollContent!: ElementRef;
   @ViewChild('sectionContainer', { static: true }) sectionContainer !: ElementRef;
@@ -73,11 +73,13 @@ export class HomePageComponent implements AfterViewInit,OnInit,OnDestroy {
     //   });
     // }
     setTimeout(() => {
+      console.log('Fade in animation triggered');
       this.shouldFadeIn = true;
     }, 1000);
   }
 
-  loadSKills(){
+  loadSKills() {
+    console.log('Loading skills...');
     setInterval(() => {
       this.isShowText = false;
       this.timeout = setTimeout(() => {
@@ -94,60 +96,60 @@ export class HomePageComponent implements AfterViewInit,OnInit,OnDestroy {
   }
 }
 
-    // const scrollContainer = this.scrollContainer.nativeElement;
-    // const scrollContent = this.scrollContent.nativeElement;
+// const scrollContainer = this.scrollContainer.nativeElement;
+// const scrollContent = this.scrollContent.nativeElement;
 
-    // Get the total width of the scrollable content
-    // const contentWidth = scrollContainer.scrollWidth;
-    // const viewportWidth = window.innerWidth;
-    // gsap.defaults({ease: 'none', duration: 2, x: ''});
-    // const sectionContainer = ''
-    // gsap.utils.toArray<HTMLElement>(this.sectionContainer).forEach((panel, i) => {
-    //   ScrollTrigger.create({
-    //     trigger: panel,
-    //     start: "top top",
-    //     pin: true,
-    //     pinSpacing: false
-    //   })
-    // });
-    // const tl = gsap.timeline();
-    // tl.from("#about", {xPercent: 0})
-    // .from("#skills", {xPercent: 0})
-    // .from("#projects", {xPercent: 0})
+// Get the total width of the scrollable content
+// const contentWidth = scrollContainer.scrollWidth;
+// const viewportWidth = window.innerWidth;
+// gsap.defaults({ease: 'none', duration: 2, x: ''});
+// const sectionContainer = ''
+// gsap.utils.toArray<HTMLElement>(this.sectionContainer).forEach((panel, i) => {
+//   ScrollTrigger.create({
+//     trigger: panel,
+//     start: "top top",
+//     pin: true,
+//     pinSpacing: false
+//   })
+// });
+// const tl = gsap.timeline();
+// tl.from("#about", {xPercent: 0})
+// .from("#skills", {xPercent: 0})
+// .from("#projects", {xPercent: 0})
 
 
-    // // Create ScrollTrigger
-    // ScrollTrigger.create({
-    //   animation: tl,
-    //   trigger: scrollContainer,
-    //   start: "top top",
-    //   end: () => `+=${contentWidth}`,
-    //   scrub: true,
-    //   pin: true,
-    //   anticipatePin: 1
-    // })
+// // Create ScrollTrigger
+// ScrollTrigger.create({
+//   animation: tl,
+//   trigger: scrollContainer,
+//   start: "top top",
+//   end: () => `+=${contentWidth}`,
+//   scrub: true,
+//   pin: true,
+//   anticipatePin: 1
+// })
 
-    // Set up the ScrollTrigger
-    // gsap.to(scrollContainer, {
-    //   x: -(contentWidth - viewportWidth), // Move content to the left
-    //   ease: 'none',
-    //   scrollTrigger: scroll
-    // });
-    // if (isPlatformBrowser(this.platformId)) {
-    //   const sectionContainer = this.sectionContainer.nativeElement;
-    //   const scrollContainer = this.scrollContainer.nativeElement;
+// Set up the ScrollTrigger
+// gsap.to(scrollContainer, {
+//   x: -(contentWidth - viewportWidth), // Move content to the left
+//   ease: 'none',
+//   scrollTrigger: scroll
+// });
+// if (isPlatformBrowser(this.platformId)) {
+//   const sectionContainer = this.sectionContainer.nativeElement;
+//   const scrollContainer = this.scrollContainer.nativeElement;
 
-    //   const totalWidth = sectionContainer.scrollWidth - scrollContainer.offsetWidth;
-    //   gsap.to(sectionContainer, {
-    //     // x: () => -totalWidth, // Move the container left as user scrolls vertically
-    //     x: () => -totalWidth,
-    //     ease: 'none',
-    //     scrollTrigger: ScrollTrigger.create({
-    //       trigger: scrollContainer,
-    //       start: 'top top',
-    //       end: () => `+=${sectionContainer.scrollWidth}`, // End when the horizontal scroll is complete
-    //       scrub: true,
-    //       pin: true, // Pins the container during the scroll
-    //     }),
-    //   });
-    // }
+//   const totalWidth = sectionContainer.scrollWidth - scrollContainer.offsetWidth;
+//   gsap.to(sectionContainer, {
+//     // x: () => -totalWidth, // Move the container left as user scrolls vertically
+//     x: () => -totalWidth,
+//     ease: 'none',
+//     scrollTrigger: ScrollTrigger.create({
+//       trigger: scrollContainer,
+//       start: 'top top',
+//       end: () => `+=${sectionContainer.scrollWidth}`, // End when the horizontal scroll is complete
+//       scrub: true,
+//       pin: true, // Pins the container during the scroll
+//     }),
+//   });
+// }

@@ -1,34 +1,37 @@
 <div class="skills-content">
-    @for(skillList of skillConfig(); track skillList._id){
-    <!-- Skill Content -->
-    <div class="space-y-6 min-h-60 content-card" (mouseenter)="skillList.isHovered= true" (mouseleave)="skillList.isHovered= false">  <!-- specifying min height to make the skill section not to move when it is expanded to view weightage -->
-        <div class="flex items-center space-x-3 cursor-pointer select-none justify-between"
-            (click)="onSkillClick(skillList)">
-            <div class="flex items-center space-x-3">
-                <div>
-                    <div class="skill-header">
-                        <img [src]="skillList.imgSrc" alt="Hello" width="50rem" height="50rem">
-                        <h3 class="font-semibold text-gray-900 text-lg skillset">{{skillList.skillset}}</h3>
-                    </div>
-                    <p class="text-gray-400 text-sm">{{skillList.experience}}</p>
-                </div>
-            </div>
-            @if(skillList.expandable){
-            <svg xmlns="http://www.w3.org/2000/svg" height="20px" viewBox="0 -960 960 960" width="20px" [style.fill]="skillList.isHovered ? hoverColor : defaultColor" stroke="currentColor">
-                <path d="M444-192v-438L243-429l-51-51 288-288 288 288-51 51-201-201v438h-72Z" />
-            </svg>
-            }
-            @else {
-            <svg xmlns="http://www.w3.org/2000/svg" height="20px" viewBox="0 -960 960 960" width="20px" [style.fill]="skillList.isHovered ? hoverColor : defaultColor" stroke="currentColor">
-                <path d="M444-768v438L243-531l-51 51 288 288 288-288-51-51-201 201v-438h-72Z" />
-            </svg>
-            }
+  @for(skillList of skillConfig(); track skillList._id){
+  <!-- Skill Content -->
+  <div class="space-y-6 min-h-60 content-card skills-section" (mouseenter)="skillList.isHovered= true"
+    (mouseleave)="skillList.isHovered= false">
+    <!-- specifying min height to make the skill section not to move when it is expanded to view weightage -->
+    <div class="flex items-center space-x-3 cursor-pointer select-none justify-between">
+      <div class="flex items-center space-x-3">
+        <div>
+          <div class="skill-header">
+            <img [src]="skillList.imgSrc" alt="Hello" width="50rem" height="50rem">
+            <h3 class="font-semibold text-gray-900 text-lg skillset">{{skillList.skillset}}</h3>
+          </div>
+          <p class="text-gray-400 text-sm">{{skillList.experience}}</p>
         </div>
-
-        <!-- Progress bars -->
-        @if(skillList.expandable){
-        <app-skill-item [skillItem]="skillList.skills"></app-skill-item>
-        }
+      </div>
+      <!-- @if(skillList.expandable){
+      <svg xmlns="http://www.w3.org/2000/svg" height="20px" viewBox="0 -960 960 960" width="20px"
+        [style.fill]="skillList.isHovered ? hoverColor : defaultColor" stroke="currentColor">
+        <path d="M444-192v-438L243-429l-51-51 288-288 288 288-51 51-201-201v438h-72Z" />
+      </svg>
+      }
+      @else {
+      <svg xmlns="http://www.w3.org/2000/svg" height="20px" viewBox="0 -960 960 960" width="20px"
+        [style.fill]="skillList.isHovered ? hoverColor : defaultColor" stroke="currentColor">
+        <path d="M444-768v438L243-531l-51 51 288 288 288-288-51-51-201 201v-438h-72Z" />
+      </svg>
+      } -->
     </div>
+
+    <!-- Progress bars -->
+    @if(skillList.expandable){
+    <app-skill-item [skillItem]="skillList.skills"></app-skill-item>
     }
+  </div>
+  }
 </div>
