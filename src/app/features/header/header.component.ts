@@ -1,7 +1,7 @@
-import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
+import { BreakpointObserver } from '@angular/cdk/layout';
 import { CommonModule } from '@angular/common';
-import { ChangeDetectorRef, Component, HostListener, OnDestroy, OnInit, computed, effect, inject } from '@angular/core';
-import {toSignal} from '@angular/core/rxjs-interop';
+import { Component, HostListener, OnInit, computed, inject } from '@angular/core';
+import { toSignal } from '@angular/core/rxjs-interop';
 import { map } from 'rxjs';
 
 @Component({
@@ -41,22 +41,22 @@ export class HeaderComponent implements OnInit {
   hamburgerLines = Array(3).map((_, i) => i);
 
   isMobilePortrait = toSignal(this.breakpointObserver.observe('(max-width: 768px) and (orientation: landscape)').pipe(map((result) => result.matches)));
-isMobileGeneral = toSignal(this.breakpointObserver.observe('(max-width: 480px)').pipe(map((result) => result.matches)));
+  isMobileGeneral = toSignal(this.breakpointObserver.observe('(max-width: 480px)').pipe(map((result) => result.matches)));
 
-// Combine conditions
-shouldShowMobileMenu = computed(() => this.isMobilePortrait() || this.isMobileGeneral());
+  // Combine conditions
+  shouldShowMobileMenu = computed(() => this.isMobilePortrait() || this.isMobileGeneral());
 
   ngOnInit() {
     // Check for saved theme preference or default to light mode
-    
+
     // Set isDarkMode based on saved preference or system preference
-    
+
     // Apply theme
     this.applyTheme();
-    
+
     // Set initial active section
     this.updateActiveSection();
-    
+
     // Add scroll listener for intersection observer
     this.observeSections();
   }
@@ -65,7 +65,7 @@ shouldShowMobileMenu = computed(() => this.isMobilePortrait() || this.isMobileGe
   onWindowScroll() {
     // Update scrolled state for header styling
     this.isScrolled = window.pageYOffset > 50;
-    
+
     // Update active section based on scroll position
     this.updateActiveSection();
   }
@@ -91,15 +91,15 @@ shouldShowMobileMenu = computed(() => this.isMobilePortrait() || this.isMobileGe
     if (element) {
       const headerHeight = 80; // Height of fixed header
       const elementPosition = element.offsetTop - headerHeight;
-      
+
       window.scrollTo({
         top: elementPosition,
         behavior: 'smooth'
       });
-      
-      // Update active section
-      this.activeSection = sectionId;
-      
+
+      // REMOVED: this.activeSection = sectionId;
+      // Let the scroll detection naturally update the active section
+
       // Close mobile menu if open
       if (this.isMobileMenuOpen) {
         this.closeMobileMenu();
@@ -117,18 +117,24 @@ shouldShowMobileMenu = computed(() => this.isMobilePortrait() || this.isMobileGe
 
   toggleMobileMenu() {
     this.isMobileMenuOpen = !this.isMobileMenuOpen;
-    
-    // Prevent body scroll when menu is open
+
+    // Enhanced body scroll control
     if (this.isMobileMenuOpen) {
       document.body.style.overflow = 'hidden';
+      document.body.style.height = '100vh';
+      document.body.classList.add('mobile-menu-open');
     } else {
       document.body.style.overflow = '';
+      document.body.style.height = '';
+      document.body.classList.remove('mobile-menu-open');
     }
   }
 
   closeMobileMenu() {
     this.isMobileMenuOpen = false;
     document.body.style.overflow = '';
+    document.body.style.height = '';
+    document.body.classList.remove('mobile-menu-open');
   }
 
   toggleTheme() {
@@ -140,7 +146,7 @@ shouldShowMobileMenu = computed(() => this.isMobilePortrait() || this.isMobileGe
   private applyTheme() {
     // // Remove both classes first to ensure clean state
     // document.documentElement.classList.remove('dark', 'light');
-    
+
     // if (this.isDarkMode) {
     //   document.documentElement.classList.add('dark');
     //   document.body.setAttribute('data-theme', 'dark');
@@ -148,46 +154,58 @@ shouldShowMobileMenu = computed(() => this.isMobilePortrait() || this.isMobileGe
     //   document.documentElement.classList.add('light');
     //   document.body.setAttribute('data-theme', 'light');
     // }
-    
+
     // // Also set a CSS custom property for theme
     // document.documentElement.style.setProperty('--theme-mode', this.isDarkMode ? 'dark' : 'light');
   }
 
+  // Enhanced updateActiveSection method for better accuracy
   private updateActiveSection() {
     const scrollPosition = window.scrollY + 100; // Offset for header
-    
-    for (let i = this.sections.length - 1; i >= 0; i--) {
+    let currentSection = 'home'; // Default to home
+
+    // Find the section that's currently most visible
+    for (let i = 0; i < this.sections.length; i++) {
       const section = document.getElementById(this.sections[i]);
       if (section && section.offsetTop <= scrollPosition) {
-        this.activeSection = this.sections[i];
-        break;
+        currentSection = this.sections[i];
       }
+    }
+
+    // Only update if it's actually different to prevent unnecessary updates
+    if (this.activeSection !== currentSection) {
+      this.activeSection = currentSection;
     }
   }
 
   private observeSections() {
-    // Intersection Observer for more accurate section detection
     const options = {
       root: null,
-      rootMargin: '-80px 0px -60% 0px',
-      threshold: 0
+      rootMargin: '-80px 0px -50% 0px', // Improved margins
+      threshold: [0, 0.1, 0.5, 1.0] // Multiple thresholds for better accuracy
     };
 
     const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          this.activeSection = entry.target.id;
-        }
+      // Find the entry with the highest intersection ratio
+      let mostVisibleEntry = entries.reduce((prev, current) => {
+        return current.intersectionRatio > prev.intersectionRatio ? current : prev;
       });
+
+      if (mostVisibleEntry && mostVisibleEntry.intersectionRatio > 0.1) {
+        const newActiveSection = mostVisibleEntry.target.id;
+        if (this.activeSection !== newActiveSection) {
+          this.activeSection = newActiveSection;
+        }
+      }
     }, options);
 
     // Observe all sections
-    const sections = ['home', 'about', 'skills', 'qualification'];
-    sections.forEach(sectionId => {
+    this.sections.forEach(sectionId => {
       const section = document.getElementById(sectionId);
       if (section) {
         observer.observe(section);
       }
     });
-  }}
+  }
+}
 

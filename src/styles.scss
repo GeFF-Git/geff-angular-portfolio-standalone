@@ -331,3 +331,12 @@ app-root{
     justify-content: center;
   }
 }
+
+/* Prevent body scroll when mobile menu is open */
+// .mobile-menu-open {
+//       overflow: hidden;
+//       height: 100vh;
+//       backdrop-filter: blur(24px);
+//       -webkit-backdrop-filter: blur(24px);
+//       // filter: blur(12px);
+//     }

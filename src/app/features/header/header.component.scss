@@ -9,8 +9,6 @@ $tablet-max: 1024px;
   width: 100%;
   z-index: 99999;
   background: rgba(255, 255, 255, 0.95);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
   border-bottom: 1px solid rgba(255, 255, 255, 0.3);
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   box-shadow: 0 4px 20px rgba(99, 102, 241, 0.08);
@@ -44,10 +42,6 @@ $tablet-max: 1024px;
   display: flex;
   flex-direction: column;
   transition: all 0.3s ease;
-
-  &:hover {
-    transform: translateY(-2px);
-  }
 }
 
 .brand-name {
@@ -218,15 +212,16 @@ $tablet-max: 1024px;
   border-radius: 2px;
 
   &.active {
-    &.line-0{
-      transform: rotate(45deg) translate(5px, 5px);
-    }
-    &.line-1{
-      opacity: 0;
-    }
-    &.line-2{
-      transform: rotate(-45deg) translate(5px, 5px);
-    }
+    // &.line-0{
+    //   transform: rotate(45deg) translate(5px, 5px);
+    // }
+    // &.line-1{
+    //   opacity: 0;
+    // }
+    // &.line-2{
+    //   transform: rotate(-45deg) translate(5px, 5px);
+    // }
+    opacity: 0;
   }
 }
 
