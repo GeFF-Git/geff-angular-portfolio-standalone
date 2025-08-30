@@ -44,8 +44,13 @@
   display: flex;
   min-height: 50dvh;
   gap: 2rem;
-  // align-items: center;
+  align-items: center;
   @media screen and (max-width: 576px) {
+    flex-direction: column;
+  }
+
+  @media screen and (max-width: 1024px) {
+    align-items: center;
     flex-direction: column;
   }
 
@@ -58,14 +63,14 @@
       height: 40dvh;
     }
     @media screen and (min-width: 576px) and (max-width: 1024px) {
-      width: 100dvw;
+      width: 80dvw;
       height: 80dvh;
     }
   }
 }
 
 .about_content {
-  width: 50vw;
+  width: 50dvw;
   display: flex;
   flex-direction: column;
   gap: 3rem;
@@ -78,7 +83,12 @@
   }
 
   @media screen and (max-width: 576px) {
-    width: 90vw;
+    width: 90dvw;
+    overflow-y: auto;
+  }
+
+  @media screen and (min-width: 576px) and (max-width: 1024px) {
+    width: 80dvw;
     overflow-y: auto;
   }
 
@@ -88,7 +98,7 @@
     border-radius: 0.5rem;
     position: relative;
     overflow: hidden;
-     background: 
+     background:
     linear-gradient(white 0 0) padding-box, /*this is your grey background*/
     linear-gradient(90deg, #6366f1, #8b5cf6, #ec4899) border-box;
     border: 2px solid transparent;
@@ -173,6 +183,9 @@
 
     @media screen and (max-width: 576px) {
       margin-left: 25dvw;
+    }
+    @media screen and (min-width: 576px) and (max-width: 1024px) {
+      margin-left: 30dvw;
     }
   }
 }

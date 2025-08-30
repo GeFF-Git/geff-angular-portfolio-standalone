@@ -28,7 +28,7 @@ export class QualificationsComponent {
         _id: window.crypto.randomUUID(),
         qualificationType: 'Work',
         title: 'Software Engineer',
-        companyOrInstitute: 'Clarium',
+        companyOrInstitute: 'Clarium Tech Private Limited',
         startYear: '2023',
         endYear: '2025',
         location: 'Chennai',
@@ -67,18 +67,7 @@ export class QualificationsComponent {
         location: 'Online',
         content: 'Professional certification demonstrating expertise in MEAN stack on Udemy. Learnt to build a full stack application using Angular, MongoDb, ExpressJs and NodeJS .Covered best practices for secure, reliable, efficient, and optimized code.',
         skillsLearnt: ['Angular', 'MongoDb', 'NodeJs', 'ExpressJs']
-      },
-      // {
-      //   _id: window.crypto.randomUUID(),
-      //   qualificationType: 'Work',
-      //   title: 'Frontend Developer Intern',
-      //   companyOrInstitute: 'Airbnb',
-      //   startYear: '2021',
-      //   endYear: '2021',
-      //   location: 'San Francisco, CA',
-      //   content: 'Summer internship focused on improving user experience for the booking platform. Implemented responsive design components and collaborated with UX designers to enhance mobile interface.',
-      //   skillsLearnt: ['React', 'CSS3', 'JavaScript', 'Responsive Design', 'User Experience', 'Git', 'Agile Development']
-      // }
+      }
     ];
 
 }

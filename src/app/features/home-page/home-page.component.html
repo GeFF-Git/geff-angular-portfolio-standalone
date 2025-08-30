@@ -1,20 +1,20 @@
 <div class="scroll-container" #scrollContainer>
-          <div class="content-1">
-              <div class="small-text">
-                  Welcome to my portfolio website!!
-              </div>
-              <div class="transition-all c1-1">
-                  I'm <span class="font-extrabold">Geff Shelby</span>
-              </div>
-              <div class="c1-2">
-                  @if (isShowText) {
-                  <div [@fadeIn]="currentSkill !== 'Loading...' ? 'animate' : 'noAnimation'">
-                      {{currentSkill}}
-                  </div>
-                  }
-              </div>
-          </div>
-          <div class="content-2">
-              <img src="assets/download_gradient_updated.svg" alt="Hello">
-          </div>
+  <div class="content-1">
+    <div class="small-text">
+      Welcome to my portfolio website!!
+    </div>
+    <div class="transition-all c1-1">
+      I'm <span class="font-extrabold">Geff Shelby</span>
+    </div>
+    <div class="c1-2">
+      @if (isShowText) {
+      <p [@fadeIn]="currentSkill !== 'Loading...' ? 'animate' : 'noAnimation'">
+        {{currentSkill}}
+      </p>
+      }
+    </div>
+  </div>
+  <div class="content-2">
+    <img src="assets/download_gradient_updated.svg" alt="Hello">
+  </div>
 </div>

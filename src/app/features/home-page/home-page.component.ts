@@ -32,7 +32,7 @@ import { AfterViewInit, Component, ElementRef, Inject, NgZone, OnDestroy, OnInit
 export class HomePageComponent implements AfterViewInit, OnInit, OnDestroy {
   constructor(@Inject(PLATFORM_ID) private platformId: object, private ngZone: NgZone) { }
 
-  strings: string[] = ['A Frontend Developer', 'A Backend Developer', 'A Photographer', 'A Traveller'];
+  strings: string[] = ['A Full-Stack Developer', 'A Vibe Coder', 'A Dancer', 'A Traveller', 'A Photographer'];
   skills: string[] = [];
   currentIndex = 0;
   currentSkill: string = 'Loading...';
@@ -72,14 +72,12 @@ export class HomePageComponent implements AfterViewInit, OnInit, OnDestroy {
     //     .fromTo(section.querySelector(".projects-section"), {xPercent: -100, x: 0}, {xPercent: -200}, "+=10");
     //   });
     // }
-    setTimeout(() => {
-      console.log('Fade in animation triggered');
-      this.shouldFadeIn = true;
-    }, 1000);
+    // setTimeout(() => {
+    // }, 1000);
+    this.shouldFadeIn = true;
   }
 
   loadSKills() {
-    console.log('Loading skills...');
     setInterval(() => {
       this.isShowText = false;
       this.timeout = setTimeout(() => {
