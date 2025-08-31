@@ -71,11 +71,7 @@ export class SkillsComponent {
           weightage: '50%'
         },
         {
-          skill: 'Node Js',
-          weightage: '20%'
-        },
-        {
-          skill: 'Express Js',
+          skill: 'Node/Express Js',
           weightage: '20%'
         }
       ]
