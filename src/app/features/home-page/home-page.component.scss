@@ -62,12 +62,13 @@
     // flex: 1 1 auto;
     flex-wrap: wrap;
     padding: 5rem;
-    @media (max-width: 576px) {
+    @media screen and (max-width: 576px) {
       // justify-content: center;
       // margin-left: 2rem;
       width: 100dvw;
       justify-content: flex-start;
       padding: 1rem;
+      height: auto;
     }
     .c1-2 {
         position: relative;
@@ -86,9 +87,7 @@
             background-clip: text;
             -webkit-text-fill-color: transparent;
             color: transparent; /* Fallback for non-webkit browsers */
-            @media screen and (max-width: 576px) {
-              width: 100%;
-            }
+            max-width: fit-content;
         }
     }
 }

@@ -16,7 +16,7 @@ export class SkillsComponent {
       isHovered: false,
       experience: '2.5 years of experience',
       expandable: true,
-      imgSrc: 'assets/devicon--frontend-developer.svg',
+      imgSrc: 'assets/Js_Black.png',
       skills: [
         {
           skill: 'HTML',
@@ -32,25 +32,7 @@ export class SkillsComponent {
         }
       ]
     },
-    {
-      _id: window.crypto.randomUUID(),
-      isHovered: false,
-      skillset: 'Frontend Frameworks',
-      experience: '2.5 years of experience',
-      expandable: true,
-      imgSrc: 'assets/devicon--angular.svg',
-      skills: [
         {
-          skill: 'Angular',
-          weightage: '80%'
-        },
-        {
-          skill: 'React',
-          weightage: '20%'
-        }
-      ]
-    },
-    {
       _id: window.crypto.randomUUID(),
       isHovered: false,
       skillset: 'Backend Developer',
@@ -59,7 +41,7 @@ export class SkillsComponent {
       imgSrc: 'assets/devicon--visualstudio.svg',
       skills: [
         {
-          skill: '.NET',
+          skill: 'C#',
           weightage: '80%'
         },
         {
@@ -68,7 +50,7 @@ export class SkillsComponent {
         },
         {
           skill: 'Python',
-          weightage: '50%'
+          weightage: '40%'
         },
         {
           skill: 'Node/Express Js',
@@ -79,7 +61,33 @@ export class SkillsComponent {
     {
       _id: window.crypto.randomUUID(),
       isHovered: false,
-      skillset: 'Database',
+      skillset: 'Frameworks & Libraries',
+      experience: '2.5 years of experience',
+      expandable: true,
+      imgSrc: 'assets/devicon--angular.svg',
+      skills: [
+        {
+          skill: 'Angular',
+          weightage: '80%'
+        },
+        {
+          skill: '.NET Core',
+          weightage: '80%'
+        },
+        {
+          skill: '.NET Framework',
+          weightage: '60%'
+        },
+        {
+          skill: 'React',
+          weightage: '20%'
+        }
+      ]
+    },
+    {
+      _id: window.crypto.randomUUID(),
+      isHovered: false,
+      skillset: 'Database & Cloud Technologies',
       experience: '2.5 years of experience',
       expandable: true,
       imgSrc: 'assets/database.png',
@@ -90,8 +98,12 @@ export class SkillsComponent {
         },
         {
           skill: 'MongoDB',
-          weightage: '70%'
+          weightage: '80%'
         },
+        {
+          skill: 'Azure',
+          weightage: '60%'
+        }
       ]
     },
     {
