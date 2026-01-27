@@ -1,20 +1,37 @@
-import { Component } from '@angular/core';
+import { CommonModule, isPlatformBrowser } from '@angular/common';
+import { Component, Inject, OnInit, PLATFORM_ID } from '@angular/core';
+import { UUID } from 'crypto';
 import { IQualificationsConfig } from './qualifications';
 import { QualificationsTimelineComponent } from './qualifications-timeline/qualifications-timeline.component';
-// import { window.crypto.randomUUID } from 'crypto';
 
 @Component({
   selector: 'app-qualifications',
-  imports: [QualificationsTimelineComponent],
+  imports: [QualificationsTimelineComponent, CommonModule],
   templateUrl: './qualifications.component.html',
   styleUrl: './qualifications.component.scss'
 })
-export class QualificationsComponent {
+export class QualificationsComponent implements OnInit {
+  config: IQualificationsConfig[] = [];
 
-  config: IQualificationsConfig[] =
-    [
+  constructor(@Inject(PLATFORM_ID) private platformId: object) { }
+
+  private generateUUID(): UUID {
+    if (isPlatformBrowser(this.platformId)) {
+      return window.crypto.randomUUID() as UUID;
+    }
+    // Fallback UUID generation for SSR
+    const uuid = 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, (c) => {
+      const r = Math.random() * 16 | 0;
+      const v = c === 'x' ? r : (r & 0x3 | 0x8);
+      return v.toString(16);
+    });
+    return uuid as UUID;
+  }
+
+  ngOnInit() {
+    this.config = [
       {
-        _id: window.crypto.randomUUID(),
+        _id: this.generateUUID(),
         qualificationType: 'Education',
         title: 'Bachelors Of Technology In Information Technology',
         companyOrInstitute: 'Loyola - ICAM College Of Engineering And Technology',
@@ -25,7 +42,7 @@ export class QualificationsComponent {
         skillsLearnt: ['Python', 'Java', 'C++', 'Data Structures', 'Algorithms', 'Maths']
       },
       {
-        _id: window.crypto.randomUUID(),
+        _id: this.generateUUID(),
         qualificationType: 'Work',
         title: 'Software Engineer',
         companyOrInstitute: 'Clarium Tech Private Limited',
@@ -33,10 +50,10 @@ export class QualificationsComponent {
         endYear: '2025',
         location: 'Chennai',
         content: 'Full Stack Developer with 2+ years of experience in building scalable web applications using Angular, .NET, Java, SQL, and MongoDB. Currently working at Clarium Tech, delivering cloud-based, secure, and high-performance solutions with a focus on reusable components, scalable APIs, and optimized database queries.',
-        skillsLearnt: ['Angular', '.NET Core', '.NET Framework', 'Java', 'Springboot', 'SQL', 'MongoDB', 'TypeScript', 'Microservices', 'Team Leadership', 'Code Review']
+        skillsLearnt: ['Angular', '.NET Core', 'Entity Framework Core', 'ASP.NET Core', 'Java', 'Springboot', 'Spring Data', '.NET Framework', 'SQL', 'MongoDB', 'TypeScript', 'Microservices', 'Team Leadership', 'Code Review']
       },
       {
-        _id: window.crypto.randomUUID(),
+        _id: this.generateUUID(),
         qualificationType: 'Education',
         title: 'Higher Secondary',
         companyOrInstitute: 'St. Marys\'s Anglo Indian Higher Secondary School',
@@ -47,7 +64,7 @@ export class QualificationsComponent {
         skillsLearnt: ['Maths', 'Physics', 'Chemistry', 'Computer Science', 'English']
       },
       {
-        _id: window.crypto.randomUUID(),
+        _id: this.generateUUID(),
         qualificationType: 'Work',
         title: 'Associate',
         companyOrInstitute: 'Revature',
@@ -58,7 +75,7 @@ export class QualificationsComponent {
         skillsLearnt: ['Azure', 'C#', '.NET Core', 'SQL', 'Angular', 'Docker', 'DevOps', 'System Architecture', 'Performance Optimization']
       },
       {
-        _id: window.crypto.randomUUID(),
+        _id: this.generateUUID(),
         qualificationType: 'Education',
         title: 'Angular & NodeJS - The MEAN Stack Guide [2024 Edition]',
         companyOrInstitute: 'Udemy',
@@ -69,5 +86,5 @@ export class QualificationsComponent {
         skillsLearnt: ['Angular', 'MongoDb', 'NodeJs', 'ExpressJs']
       }
     ];
-
+  }
 }

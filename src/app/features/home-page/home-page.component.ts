@@ -32,7 +32,7 @@ import { AfterViewInit, Component, ElementRef, Inject, NgZone, OnDestroy, OnInit
 export class HomePageComponent implements AfterViewInit, OnInit, OnDestroy {
   constructor(@Inject(PLATFORM_ID) private platformId: object, private ngZone: NgZone) { }
 
-  strings: string[] = ['A Full-Stack Developer', 'A Vibe Coder', 'A Dancer', 'A Traveller', 'A Photographer'];
+  strings: string[] = ['A Full-Stack Developer', 'A Vibe Coder', 'A Dancer', 'A Traveller', 'An Adventurer'];
   skills: string[] = [];
   currentIndex = 0;
   currentSkill: string = 'Loading...';

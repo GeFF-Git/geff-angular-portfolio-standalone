@@ -1,6 +1,6 @@
 import { BreakpointObserver } from '@angular/cdk/layout';
-import { CommonModule } from '@angular/common';
-import { Component, HostListener, OnInit, computed, inject } from '@angular/core';
+import { CommonModule, isPlatformBrowser } from '@angular/common';
+import { Component, HostListener, Inject, OnInit, PLATFORM_ID, computed, inject } from '@angular/core';
 import { toSignal } from '@angular/core/rxjs-interop';
 import { map } from 'rxjs';
 
@@ -46,6 +46,8 @@ export class HeaderComponent implements OnInit {
   // Combine conditions
   shouldShowMobileMenu = computed(() => this.isMobilePortrait() || this.isMobileGeneral());
 
+  constructor(@Inject(PLATFORM_ID) private platformId: object) {}
+
   ngOnInit() {
     // Check for saved theme preference or default to light mode
 
@@ -54,15 +56,19 @@ export class HeaderComponent implements OnInit {
     // Apply theme
     this.applyTheme();
 
-    // Set initial active section
-    this.updateActiveSection();
-
-    // Add scroll listener for intersection observer
-    this.observeSections();
+    // Set initial active section (only in browser)
+    if (isPlatformBrowser(this.platformId)) {
+      this.updateActiveSection();
+      // Add scroll listener for intersection observer
+      this.observeSections();
+    }
   }
 
-  @HostListener('window:scroll', ['$event'])
+  @HostListener('window:scroll')
   onWindowScroll() {
+    if (!isPlatformBrowser(this.platformId)) {
+      return;
+    }
     // Update scrolled state for header styling
     this.isScrolled = window.pageYOffset > 50;
 
@@ -70,15 +76,18 @@ export class HeaderComponent implements OnInit {
     this.updateActiveSection();
   }
 
-  @HostListener('window:resize', ['$event'])
+  @HostListener('window:resize')
   onWindowResize() {
+    if (!isPlatformBrowser(this.platformId)) {
+      return;
+    }
     // Close mobile menu on resize to desktop
     if (window.innerWidth > 768 && this.isMobileMenuOpen) {
       this.closeMobileMenu();
     }
   }
 
-  @HostListener('document:keydown.escape', ['$event'])
+  @HostListener('document:keydown.escape')
   onEscapeKey() {
     // Close mobile menu on escape key
     if (this.isMobileMenuOpen) {
@@ -87,6 +96,9 @@ export class HeaderComponent implements OnInit {
   }
 
   scrollToSection(sectionId: string) {
+    if (!isPlatformBrowser(this.platformId)) {
+      return;
+    }
     const element = document.getElementById(sectionId);
     if (element) {
       const headerHeight = 80; // Height of fixed header
@@ -108,6 +120,9 @@ export class HeaderComponent implements OnInit {
   }
 
   scrollToTop() {
+    if (!isPlatformBrowser(this.platformId)) {
+      return;
+    }
     window.scrollTo({
       top: 0,
       behavior: 'smooth'
@@ -116,6 +131,9 @@ export class HeaderComponent implements OnInit {
   }
 
   toggleMobileMenu() {
+    if (!isPlatformBrowser(this.platformId)) {
+      return;
+    }
     this.isMobileMenuOpen = !this.isMobileMenuOpen;
 
     // Enhanced body scroll control
@@ -131,6 +149,9 @@ export class HeaderComponent implements OnInit {
   }
 
   closeMobileMenu() {
+    if (!isPlatformBrowser(this.platformId)) {
+      return;
+    }
     this.isMobileMenuOpen = false;
     document.body.style.overflow = '';
     document.body.style.height = '';
@@ -161,6 +182,9 @@ export class HeaderComponent implements OnInit {
 
   // Enhanced updateActiveSection method for better accuracy
   private updateActiveSection() {
+    if (!isPlatformBrowser(this.platformId)) {
+      return;
+    }
     const scrollPosition = window.scrollY + 100; // Offset for header
     let currentSection = 'home'; // Default to home
 
@@ -179,6 +203,9 @@ export class HeaderComponent implements OnInit {
   }
 
   private observeSections() {
+    if (!isPlatformBrowser(this.platformId)) {
+      return;
+    }
     const options = {
       root: null,
       rootMargin: '-80px 0px -50% 0px', // Improved margins
