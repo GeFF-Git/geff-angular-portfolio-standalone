@@ -6,6 +6,12 @@
   NODE_VERSION = "20"
   NPM_FLAGS = "--version"
 
+# Disable the Angular SSR runtime plugin since we're using client-side rendering only
+[[plugins]]
+  package = "@netlify/angular-runtime"
+  [plugins.inputs]
+    skip = true
+
 [[redirects]]
   from = "/*"
   to = "/index.html"
